@@ -9,7 +9,7 @@ import About from "./pages/About";
 function App() {
   return (
     <HashRouter>
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <Link to="/home">Home</Link>
@@ -18,11 +18,13 @@ function App() {
             <Link to="/about">About</Link>
           </li>
         </ul>
-      </nav>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      </nav> */}
+      {/* <div style={{ fontFamily: 'Poppins, sans-serif' }} className=' z-0 cursor-none w-full text text-white bg-[#171C24] ' > */}
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      {/* </div> */}
     </HashRouter>
   )
 }
