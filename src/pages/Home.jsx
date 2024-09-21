@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Navbar from '../components/Navbar';
 import menuData from '../data/Menu.json';
+import { BsFillStarFill } from "react-icons/bs";
 
 export default function Home() {
   const [outlets, setOutlets] = useState([]);
@@ -24,12 +25,27 @@ export default function Home() {
         {outlets.map((outlet) => (
           <div
             key={outlet.id}
-            className="mb-6 cursor-pointer"
+            className="mb-6 cursor-pointer w-72"
             onClick={() => handleOutletClick(outlet.name)} // Navigate on click
           >
-            <h2 className="text-2xl">{outlet.name}</h2>
-            <p>Location: {outlet.location}</p>
-            <p>Menu Types: {outlet.menuType.join(', ')}</p>
+            <img src={outlet.image} className="h-64 mr-4 object-cover rounded-xl overflow-hidden" />
+            <div className=' flex justify-between'>
+              <div>
+                <h2 className="text-2xl">{outlet.name}</h2>
+                <p>Location: {outlet.location}</p>
+                <p>Menu Types: {outlet.menuType.join(', ')}</p>
+              </div>
+              <div className=''>
+                {/* <h2 className="text-2xl">{outlet.name}</h2> */}
+                <div className=' bg-green-500 flex items-center gap-3 rounded-lg p-1'>
+                <p>{outlet.rating.$numberInt} </p>
+                <BsFillStarFill size={16} />
+                  </div>
+               
+                
+                {/* <p>Menu Types: {outlet.menuType.join(', ')}</p> */}
+              </div>
+            </div>
           </div>
         ))}
       </div>

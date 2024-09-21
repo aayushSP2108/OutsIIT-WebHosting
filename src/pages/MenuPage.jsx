@@ -1,17 +1,34 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import menuData from '../data/Menu.json'; // Adjust the path as needed
+import menuData from '../data/Menu.json';
 import Navbar from '../components/Navbar';
+import { IoHeart } from "react-icons/io5";
+import ImageGallery from '../components/ImageGallery';
 
 export default function MenuPage() {
     const { outletName } = useParams();
+
+    const [cart, setCart] = useState(() => {
+        const savedCarts = localStorage.getItem('carts');
+        const carts = savedCarts ? JSON.parse(savedCarts) : {};
+        return carts[outletName] || { storeName: outletName, items: [] };
+    });
+
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [likedItems, setLikedItems] = useState(new Set());
     const outlet = menuData.outlets?.find((outlet) => outlet.name === outletName);
     const categoryRefs = useRef([]);
 
+    useEffect(() => {
+        const savedCarts = localStorage.getItem('carts');
+        const carts = savedCarts ? JSON.parse(savedCarts) : {};
+        carts[outletName] = cart; // Update only the current outlet's cart
+        localStorage.setItem('carts', JSON.stringify(carts));
+    }, [cart, outletName]);
+
     const scrollToCategory = (index) => {
         if (categoryRefs.current[index]) {
-            const offset = 100; // Adjust this value based on your fixed menu height
+            const offset = 100;
             const element = categoryRefs.current[index];
             const elementPosition = element.getBoundingClientRect().top + window.scrollY;
 
@@ -45,6 +62,71 @@ export default function MenuPage() {
         };
     }, []);
 
+    const toggleLikeItem = (itemId) => {
+        setLikedItems((prevLikedItems) => {
+            const newLikedItems = new Set(prevLikedItems);
+            if (newLikedItems.has(itemId)) {
+                newLikedItems.delete(itemId);
+            } else {
+                newLikedItems.add(itemId);
+            }
+            return newLikedItems;
+        });
+    };
+
+    const addToCart = (item) => {
+        setCart((prevCart) => {
+            const existingItem = prevCart.items.find(cartItem => cartItem.id === item.id);
+            if (existingItem) {
+                return {
+                    ...prevCart,
+                    items: prevCart.items.map(cartItem =>
+                        cartItem.id === item.id
+                            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                            : cartItem
+                    )
+                };
+            }
+            return { ...prevCart, items: [...prevCart.items, { ...item, quantity: 1 }] };
+        });
+    };
+
+    const removeFromCart = (itemId) => {
+        setCart((prevCart) => {
+            const existingItem = prevCart.items.find(item => item.id === itemId);
+
+            if (existingItem) {
+                if (existingItem.quantity > 1) {
+                    return {
+                        ...prevCart,
+                        items: prevCart.items.map(item =>
+                            item.id === itemId
+                                ? { ...item, quantity: item.quantity - 1 }
+                                : item
+                        )
+                    };
+                } else {
+                    return {
+                        ...prevCart,
+                        items: prevCart.items.filter(item => item.id !== itemId)
+                    };
+                }
+            }
+            return prevCart; // Return the previous cart if item not found
+        });
+    };
+
+    const deleteFromCart = (itemId) => {
+        setCart((prevCart) => ({
+            ...prevCart,
+            items: prevCart.items.filter(item => item.id !== itemId)
+        }));
+    };
+
+    const getCartTotal = () => {
+        return cart.items.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
     if (!outlet) {
         return <div>Outlet not found</div>;
     }
@@ -53,14 +135,12 @@ export default function MenuPage() {
         <div className="bg-gray-900 text-gray-200 w-screen">
             <Navbar />
             <div className="flex pt-16">
-                {/* Fixed Menu for Desktop */}
+
                 <div className='hidden md:block fixed top-16 left-0 p-4 w-[15%] h-[calc(100vh-4rem)] overflow-y-auto'>
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
-                                <h2
-                                    className={`text-2xl font-semibold mb-2 ${selectedCategory === index ? 'text-blue-500' : 'text-gray-200'}`}
-                                >
+                                <h2 className={`text-2xl font-semibold mb-2 ${selectedCategory === index ? 'text-blue-500' : 'text-gray-200'}`}>
                                     {category.title}
                                 </h2>
                             </div>
@@ -70,14 +150,11 @@ export default function MenuPage() {
                     )}
                 </div>
 
-                {/* Fixed Horizontal Scroll for Mobile */}
                 <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-800 p-2 overflow-x-auto flex space-x-4 z-10">
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
-                                <h2
-                                    className={`text-lg font-semibold ${selectedCategory === index ? 'text-blue-500' : 'text-gray-200'}`}
-                                >
+                                <h2 className={`text-lg font-semibold ${selectedCategory === index ? 'text-blue-500' : 'text-gray-200'}`}>
                                     {category.title}
                                 </h2>
                             </div>
@@ -87,20 +164,50 @@ export default function MenuPage() {
                     )}
                 </div>
 
-                <div className='flex-1 ml-[15%] p-4'>
-                    <h1 className="text-3xl mb-4">Menu for {outlet.name}</h1>
 
+                <div className='flex-1 ml-0 md:ml-[15%] p-4'>
+                    <h1 className="text-3xl mb-4">{outlet.name}</h1>
+                    <div className='flex gap-8 mb-4'>
+                        <h1>Recommended</h1>
+                        <h1>Popular</h1>
+                        <h1>Veg</h1>
+                    </div>
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} className="mb-6" ref={el => categoryRefs.current[index] = el}>
                                 <h2 className="text-2xl font-semibold mb-2">{category.title}</h2>
                                 <ul className='flex flex-wrap w-full justify-between'>
-                                    {category.items.map((item) => (
-                                        <li key={item.id} className="mb-2 w-full sm:w-[48%] md:w-[30%] flex-shrink-0">
-                                            <img src={item.image} alt={item.item} className="h-64 w-full mr-4 object-cover rounded-xl overflow-hidden" />
-                                            <span className="font-bold">{item.item}</span> - ${item.price} ({item.type})
-                                        </li>
-                                    ))}
+
+                                    {category.items.map((item) => {
+                                        const cartItem = cart.items.find(cartItem => cartItem.id === item.id);
+                                        const quantity = cartItem ? cartItem.quantity : 0;
+
+                                        return (
+                                            <li key={item.id} className="mb-2 w-full sm:w-[48%] md:w-[30%] flex-shrink-0 relative">
+                                                <img src={item.image} alt={item.item} className="h-64 w-full mr-4 object-cover rounded-2xl" />
+                                                <span className="absolute top-3 right-3 cursor-pointer" onClick={() => toggleLikeItem(item.id)}>
+                                                    <IoHeart className={`p-2 rounded-full bg-slate-100 bg-opacity-80`} size={35} style={{ color: likedItems.has(item.id) ? 'red' : 'black' }} />
+                                                </span>
+
+                                                <div className='pt-2 pb-4'>
+                                                    <span className="font-bold">{item.item}</span>
+                                                    <div className='flex justify-between'>
+                                                        <span className="font-bold">${item.price}</span>
+                                                        {quantity > 0 ? (
+                                                            <div className='flex items-center'>
+                                                                <button onClick={() => removeFromCart(item.id)} className='bg-red-500 text-white rounded px-2 py-1'>-</button>
+                                                                <span className='mx-2'>{quantity}</span>
+                                                                <button onClick={() => addToCart(item)} className='bg-green-500 text-white rounded px-2 py-1'>+</button>
+                                                            </div>
+                                                        ) : (
+                                                            <button onClick={() => addToCart(item)} className='bg-green-500 text-white rounded px-2 py-1'>Add</button>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        );
+                                    })}
+
                                 </ul>
                             </div>
                         ))
@@ -108,17 +215,60 @@ export default function MenuPage() {
                         <p>No menu available</p>
                     )}
                 </div>
-                
-                <div className='p-4 w-[30%]'>
-                    {outlet.menu && outlet.menu.length > 0 ? (
-                        outlet.menu.map((category) => (
-                            <div key={category._id}>
-                                <h2 className="text-2xl font-semibold mb-2">{category.title}</h2>
-                            </div>
-                        ))
+
+
+                <div className='p-8 w-[30%] shadow-md rounded-lg'>
+                    <ImageGallery />
+
+                    <div className='flex justify-between items-center mt-6'>
+                        <div className='text-lg font-semibold '>Recommended Add-ons</div>
+                        <IoHeart />
+                    </div>
+                    <div className='pt-2 text-sm text-gray-300'>
+                        Above are some recommended add-ons that pair well with your selections.
+                    </div>
+
+                    <div className='flex justify-between items-center mt-6'>
+                        <div>
+                            <div className='text-xl font-bold '>${getCartTotal().toFixed(2)}</div>
+                            <div className='text-sm text-gray-300'>{cart.items.length} items</div>
+                        </div>
+                        <div className='bg-orange-600 text-white h-full rounded-full text-xl px-4 py-2 font-semibold hover:bg-orange-500 transition duration-200'>
+                            Checkout
+                        </div>
+                    </div>
+
+
+                    {cart.items.length === 0 ? (
+                        <p>No items in cart</p>
                     ) : (
-                        <p>No menu available</p>
+                        <ul className='mt-4'>
+                            {cart.items.map((item) => (
+                                <li key={item.id} className='flex justify-between  mb-2'>
+                                    <div className='flex '>
+                                        <img src={item.image} alt={item.item} className="h-20 w-20 mr-4 object-cover rounded-lg" />
+                                        <div className=' flex flex-col justify-between'>
+                                            <div>
+                                                <div className='text-lg font-semibold text-gray-800'>{item.item.length}</div>
+                                                <div className='text-sm text-gray-600'>quantity: {item.quantity} * ${item.price}</div>
+                                            </div>
+                                            <div className='text-lg font-bold text-gray-800'>${(item.quantity * item.price).toFixed(2)}</div>
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col items-end justify-between'>
+                                        <div className='text-sm text-green-500 font-medium'>In Stock</div>
+                                        <div className='flex items-center border rounded-md overflow-hidden mt-1'>
+                                            <button className='px-2 py-1 text-lg font-bold '>-</button>
+                                            <div className='px-3 text'>{item.quantity}</div>
+                                            <button className='px-2 py-1 text-lg font-bold '>+</button>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            ))}
+                        </ul>
                     )}
+
                 </div>
             </div>
         </div>
