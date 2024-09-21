@@ -1,0 +1,253 @@
+{
+    "outlets": [
+        {
+            "_id": {
+                "$oid": "66ef0d27527bfa757ba97514"
+            },
+            "id": "1721926168238",
+            "name": "Amul Store",
+            "shopkeeperName": "Amul Owner",
+            "upiId": "upi@123",
+            "featured": true,
+            "type": "PureVeg",
+            "offDays": [
+                "Sunday"
+            ],
+            "menuType": [
+                "Dessert",
+                "Beverage"
+            ],
+            "location": "Emiet Hostel, New PC",
+            "rating": {
+                "$numberInt": "3"
+            },
+            "ratingcount": {
+                "$numberInt": "7"
+            },
+            "image": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/thumb/amulstore.jpg",
+            "details": "The Amul Store at the campus is a one-stop shop for a variety of dairy products including milk, cheese, ice cream, and other popular Amul products.",
+            "openingTime": "10:00 pm",
+            "closingTime": "10:00 pm",
+            "leaveDay": "None",
+            "userId": "AmulStore.iitgn@gmail.com",
+            "menu": [
+                {
+                    "title": "Popular",
+                    "items": [
+                        {
+                            "id": "1722045477414",
+                            "item": "Amul TriCone",
+                            "price": "800",
+                            "type": "PureVeg",
+                            "description": "Delicious creamy ice cream in a variety of flavors, perfect for a sweet treat.",
+                            "status": false,
+                            "category": "Cold_Dessert",
+                            "image": "https://i.pinimg.com/736x/33/e6/ff/33e6ff011d887758fa255ea000d3be4c.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "_id": {
+                                "$oid": "66a454364cb709e3f22c488d"
+                            }
+                        }
+                    ],
+                    "_id": {
+                        "$oid": "66a454364cb709e3f22c488c"
+                    }
+                },
+                {
+                    "title": "Desserts",
+                    "items": [
+                        {
+                            "id": "1722045492375",
+                            "item": "Amul Chocominis",
+                            "price": "40",
+                            "type": "NonVeg",
+                            "description": "Rich, bite-sized chocolates, perfect for chocolate lovers.",
+                            "status": false,
+                            "category": "Cold_Dessert",
+                            "image": "https://www.shutterstock.com/shutterstock/photos/1878842344/display_1500/stock-photo-india-april-chocolate-brand-amul-chocominis-1878842344.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "_id": {
+                                "$oid": "66a454364cb709e3f22c488f"
+                            }
+                        }
+                    ],
+                    "_id": {
+                        "$oid": "66a454364cb709e3f22c488e"
+                    }
+                },
+                {
+                    "title": "Beverages",
+                    "items": [
+                        {
+                            "id": "1722046085010",
+                            "item": "Amul Kool",
+                            "price": "70",
+                            "type": "PureVeg",
+                            "description": "Refreshing shake made with milk and flavorings.",
+                            "status": true,
+                            "category": "Cold_Beverage",
+                            "image": "https://www.shutterstock.com/shutterstock/photos/1257639893/display_1500/stock-photo-pune-india-september-amul-kool-on-white-background-shot-in-studio-1257639893.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "_id": {
+                                "$oid": "66a457a988657cee353a1c39"
+                            }
+                        }
+                    ],
+                    "_id": {
+                        "$oid": "66a457a988657cee353a1c38"
+                    }
+                }
+            ],
+            "__v": {
+                "$numberInt": "0"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "66ef0e03527bfa757ba97516"
+            },
+            "id": "202407280001",
+            "name": "2 Degree Café",
+            "shopkeeperName": "2 Degree Café Owner",
+            "upiId": "upi@123",
+            "featured": false,
+            "type": "NonVeg",
+            "offDays": [
+                "None"
+            ],
+            "menuType": [
+                "Snack",
+                "Meal",
+                "Salad"
+            ],
+            "location": "Acad Block 1",
+            "rating": {
+                "$numberInt": "3"
+            },
+            "ratingcount": {
+                "$numberInt": "7"
+            },
+            "image": "https://img.restaurantguru.com/r515-2-degree-cafe-interior.jpg",
+            "details": "2 Degree Café offers a cozy atmosphere perfect for coffee enthusiasts. Enjoy a variety of coffees and light snacks.",
+            "openingTime": "9:30 am",
+            "closingTime": "11:00 pm",
+            "leaveDay": "None",
+            "userId": "2DegreeCafé.iitgn@gmail.com",
+            "menu": [
+                {
+                    "title": "Beverages",
+                    "items": [
+                        {
+                            "_id": "202407280002",
+                            "id": "202407280002",
+                            "item": "Masala Chai",
+                            "price": "50",
+                            "type": "Veg",
+                            "description": "Traditional Indian spiced tea.",
+                            "status": true,
+                            "category": "Hot_Cafe",
+                            "image": "https://www.teacupsfull.com/cdn/shop/articles/Screenshot_2023-10-20_at_11.07.13_AM.png?v=1697780292",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": "202407280003",
+                            "id": "202407280003",
+                            "item": "Cold Coffee",
+                            "price": "70",
+                            "type": "Veg",
+                            "description": "Refreshing cold coffee.",
+                            "status": true,
+                            "category": "Cold_Cafe",
+                            "image": "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Cold-Coffee-Thumbnail.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": "202407280004",
+                            "id": "202407280004",
+                            "item": "Cold Coco",
+                            "price": "60",
+                            "type": "Veg",
+                            "description": "Chilled chocolate-flavored drink.",
+                            "status": true,
+                            "category": "Cold_Cafe",
+                            "image": "https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/cre8krdqeeuyq74gbpsy",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": "202407280005",
+                            "id": "202407280005",
+                            "item": "Iced Tea",
+                            "price": "65",
+                            "type": "Veg",
+                            "description": "Chilled tea served with ice.",
+                            "status": true,
+                            "category": "Cold_Cafe",
+                            "image": "https://www.funfoodfrolic.com/wp-content/uploads/2017/05/Iced-Tea-3.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Snacks",
+                    "items": [
+                        {
+                            "_id": "202407280006",
+                            "id": "202407280006",
+                            "item": "Sandwich",
+                            "price": "100",
+                            "type": "Veg",
+                            "description": "Classic sandwich with assorted fillings.",
+                            "status": true,
+                            "category": "Snacks",
+                            "image": "https://www.vegrecipesofindia.com/wp-content/uploads/2014/01/grilled-sandwich-4.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "__v": {
+                "$numberInt": "0"
+            }
+        }
+    ]
+}

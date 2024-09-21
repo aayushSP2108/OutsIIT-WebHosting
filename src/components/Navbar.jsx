@@ -9,7 +9,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-gray-800 shadow">
+        <nav className="bg-gray-800 shadow fixed top-0 left-0 w-full z-10">
             <div className="container mx-auto flex justify-between items-center p-4">
                 <div className="text-lg font-bold">
                     <a href="#" className="text-white">Logo</a>
@@ -33,12 +33,12 @@ export default function Navbar() {
                             <FaSearch />
                         </span>
                     </div>
-                        <div style={{ width: '40px', height: '40px' }} className="bg-gray-700 rounded-full flex justify-center items-center hover:bg-[#ff3c00] cursor-pointer">
-                            <FaShoppingBasket className="text-white" size={20} />
-                        </div>
-                        <div style={{ width: '40px', height: '40px' }} className="bg-gray-700 rounded-full flex justify-center items-center hover:bg-[#ff3c00] cursor-pointer ">
-                            <FaUserCircle className="text-white" size={20} />
-                        </div>
+                    <div style={{ width: '40px', height: '40px' }} className="bg-gray-700 rounded-full flex justify-center items-center hover:bg-[#ff3c00] cursor-pointer">
+                        <FaShoppingBasket className="text-white" size={20} />
+                    </div>
+                    <div style={{ width: '40px', height: '40px' }} className="bg-gray-700 rounded-full flex justify-center items-center hover:bg-[#ff3c00] cursor-pointer ">
+                        <FaUserCircle className="text-white" size={20} />
+                    </div>
                 </div>
 
                 <button onClick={toggleMenu} className="md:hidden text-white">

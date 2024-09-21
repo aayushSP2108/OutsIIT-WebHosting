@@ -5,6 +5,7 @@ import './App.css'
 import { HashRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import MenuPage from './pages/MenuPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/menu/:outletName" element={<MenuPage />} />
         </Routes>
       {/* </div> */}
     </HashRouter>
