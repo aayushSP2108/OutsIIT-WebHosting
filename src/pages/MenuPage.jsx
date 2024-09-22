@@ -303,23 +303,24 @@ export default function MenuPage() {
 
                                                 <div className='pt-2 pb-4 flex justify-between items-center' >
                                                     <div>
-                                                        <span style={{color:colors.mainTextColor}} className="font-bold">{item.item}</span>
+                                                        <span style={{ color: colors.mainTextColor }} className="font-bold">{item.item}</span>
                                                         <div style={{ marginTop: -8 }} className='flex justify-between'>
-                                                            <span style={{ fontFamily: 'Montserrat', color:colors.textColor }} className="font-bold text-base">₹{item.price}</span>
+                                                            <span style={{ fontFamily: 'Montserrat', color: colors.textColor }} className="font-bold text-base">₹{item.price}</span>
                                                         </div>
                                                     </div>
-                                                    <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.componentColor, borderColor: colors.secComponentColor }} className='relative w-[70px] h-8 rounded border-2 flex items-center justify-center text-base'>
-                                                        {quantity > 0 ? (
-                                                            <div className='flex items-center justify-between'>
-                                                                <button onClick={() => removeFromCart(item.id)} style={{ color: colors.textColor}} className=' w-[50%] h-full absolute left-1 '><FaMinus size={12} /></button>
-                                                                <span style={{ color: colors.mainTextColor}}>{quantity}</span>
-                                                                <button onClick={() => addToCart(item)} style={{ color: colors.textColor}} className=' absolute w-[50%] h-full right-1  flex items-center justify-end'><FaPlus size={12} /></button>
-                                                            </div>
-                                                        ) : (
-                                                            <button onClick={() => addToCart(item)} style={{ color: colors.mainTextColor}} className='uppercase w-full h-full'>Add</button>
-                                                        )}
-                                                    </div>
-
+                                                    {!status.text.includes("Closed") && (
+                                                        <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.componentColor, borderColor: colors.secComponentColor }} className='relative w-[70px] h-8 rounded border-2 flex items-center justify-center text-base'>
+                                                            {quantity > 0 ? (
+                                                                <div className='flex items-center justify-between'>
+                                                                    <button onClick={() => removeFromCart(item.id)} style={{ color: colors.textColor }} className=' w-[50%] h-full absolute left-1 '><FaMinus size={12} /></button>
+                                                                    <span style={{ color: colors.mainTextColor }}>{quantity}</span>
+                                                                    <button onClick={() => addToCart(item)} style={{ color: colors.textColor }} className=' absolute w-[50%] h-full right-1  flex items-center justify-end'><FaPlus size={12} /></button>
+                                                                </div>
+                                                            ) : (
+                                                                <button onClick={() => addToCart(item)} style={{ color: colors.mainTextColor }} className='uppercase w-full h-full'>Add</button>
+                                                            )}
+                                                        </div>
+                                                    )}
 
                                                 </div>
                                             </li>
@@ -332,10 +333,10 @@ export default function MenuPage() {
                                     const quantity = cartItem ? cartItem.quantity : 0;
 
                                     return (
-<li
-  key={item.id}
-  className="flex flex-col md:hidden mb-16 relative p-2 min-h-48 shadow-xl "
->
+                                        <li
+                                            key={item.id}
+                                            className="flex flex-col md:hidden mb-16 relative p-2 min-h-48 shadow-xl "
+                                        >
                                             <div className='flex justify-between items-start'>
                                                 <div className='w-[60%] p-2'>
                                                     <div className='flex items-center mb-2'>
@@ -364,22 +365,26 @@ export default function MenuPage() {
                                                 </div>
                                                 <div className="relative w-[40%]">
                                                     <img src={item.image} alt={item.item} className="h-40 w-full object-cover rounded-2xl" />
-                                                    {quantity > 0 ? (
-                                                        <div style={{ backgroundColor: colors.componentColor, color: colors.textColor }} className='border-[1px] border-l-indigo-50 absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10  rounded-lg'>
-                                                            <button onClick={() => removeFromCart(item.id)} className='absolute  h-full w-[50%] left-0 px-2 rounded'>
-                                                                <FaMinus size={15} />
-                                                            </button>
-                                                            <span style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className=' font-bold text-lg'>{quantity}</span>
-                                                            <button onClick={() => addToCart(item)} className='absolute  h-full w-[50%] flex items-center justify-end right-0 px-2 rounded'>
-                                                                <FaPlus size={15} />
-                                                            </button>
-                                                        </div>
-                                                    ) : (
-                                                        <div style={{ backgroundColor: colors.componentColor, color: colors.textColor }} onClick={() => addToCart(item)} className='border-[1px] absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10  rounded-lg'>
-                                                            <button style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className=' uppercase text-white font-bold text-lg'>
-                                                                Add
-                                                            </button>
-                                                            <div className=' absolute top-0 right-2'>+</div>
+                                                    {!status.text.includes("Closed") && (
+                                                        <div style={{ backgroundColor: colors.componentColor, color: colors.textColor }} className='border-[1px] border-l-indigo-50 absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10 rounded-lg'>
+                                                            {quantity > 0 ? (
+                                                                <>
+                                                                    <button onClick={() => removeFromCart(item.id)} className='absolute h-full w-[50%] left-0 px-2 rounded'>
+                                                                        <FaMinus size={15} />
+                                                                    </button>
+                                                                    <span style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='font-bold text-lg'>{quantity}</span>
+                                                                    <button onClick={() => addToCart(item)} className='absolute h-full w-[50%] flex items-center justify-end right-0 px-2 rounded'>
+                                                                        <FaPlus size={15} />
+                                                                    </button>
+                                                                </>
+                                                            ) : (
+                                                                <div onClick={() => addToCart(item)} className='border-[1px] flex items-center justify-center h-full w-full rounded-lg'>
+                                                                    <button style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='uppercase text-white font-bold text-lg'>
+                                                                        Add
+                                                                    </button>
+                                                                    <div className='absolute top-0 right-2'>+</div>
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     )}
                                                 </div>
@@ -401,7 +406,7 @@ export default function MenuPage() {
 
 
                 <div style={{ backgroundColor: colors.componentColor }} className='p-8 w-[30%] shadow-md hidden md:block'>
-                    <ImageGallery />
+                    <ImageGallery outletName={outletName} />
 
                     <div style={{ color: colors.mainTextColor }} className='flex justify-between items-center mt-6'>
                         <div className='text-2xl font-semibold -mb-1'>Recommended Add-ons</div>
@@ -411,51 +416,74 @@ export default function MenuPage() {
                         Above are some recommended add-ons that pair well with your selections.
                     </div>
 
-                    <div className='flex justify-between items-center mt-6'>
-                        <div>
-                            <div style={{ color: colors.mainTextColor }} className='text-3xl font-bold -mb-2'>₹{getCartTotal().toFixed(2)}</div>
-                            <div style={{ color: colors.textColor }} className='text-xl '>{cart.items.length} items</div>
-                        </div>
-                        <div style={{ backgroundColor: colors.differentColorOrange, fontFamily: 'Montserrat' }} className=' rounded-full text-xl px-4 py-2 font-bold'>
-                            Checkout
-                        </div>
-                    </div>
-
-
-                    {cart.items.length === 0 ? (
-                        <p>No items in cart</p>
+                    {status.text.includes("Closed") ? (
+                        <p className="leading-[1.05] pt-6">
+                            Our shop is currently closed, but don’t worry! Your cart will be waiting for you as soon as we reopen. Feel free to come back later!
+                        </p>
                     ) : (
-                        <ul className='mt-4'>
-                            {cart.items.map((item) => (
-                                <li key={item.id} className='flex justify-between mb-4'>
-                                    <div className='flex '>
-                                        <img src={item.image} alt={item.item} style={{ borderColor: colors.secComponentColor }} className=" border-2 h-20 w-20 mr-4 object-cover rounded-lg" />
-                                        <div className=' flex flex-col justify-between'>
-                                            <div>
-                                                <div style={{ color: colors.mainTextColor, marginBottom: -8 }} className='text-xl font-bold'>
-                                                    <TruncatedTextComponent text={item.item} maxLength={11} />
+                        <div>
+                            <div className='flex justify-between items-center mt-6'>
+                                <div>
+                                    <div style={{ color: colors.mainTextColor }} className='text-3xl font-bold -mb-2'>₹{getCartTotal().toFixed(2)}</div>
+                                    <div style={{ color: colors.textColor }} className='text-xl'>{cart.items.length} items</div>
+                                </div>
+                                <div 
+                                onClick={() => {console.log("YOUR ORDER IS SUCCESSFULLY PLACED")}}
+                                style={{ backgroundColor: colors.differentColorOrange, fontFamily: 'Montserrat' }} className='rounded-full text-xl px-4 py-2 font-bold'>
+                                    Checkout
+                                </div>
+                            </div>
+
+                            {cart.items.length === 0 ? (
+                                <p>No items in cart</p>
+                            ) : (
+                                <ul className='mt-4'>
+                                    {cart.items.map((item) => (
+                                        <li key={item.id} className='flex justify-between mb-4'>
+                                            <div className='flex'>
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.item}
+                                                    style={{ borderColor: colors.secComponentColor }}
+                                                    className="border-2 h-20 w-20 mr-4 object-cover rounded-lg"
+                                                />
+                                                <div className='flex flex-col justify-between'>
+                                                    <div>
+                                                        <div style={{ color: colors.mainTextColor, marginBottom: -8 }} className='text-xl font-bold'>
+                                                            <TruncatedTextComponent text={item.item} maxLength={11} />
+                                                        </div>
+                                                        <div style={{ color: colors.textColor }} className='text-lg font-light'>
+                                                            Quantity: {item.quantity} * Rs.{item.price}
+                                                        </div>
+                                                    </div>
+                                                    <div style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }} className='text-base font-bold'>
+                                                        ₹{(item.quantity * item.price).toFixed(2)}
+                                                    </div>
                                                 </div>
-                                                <div style={{ color: colors.textColor }} className='text-lg font-light'>Quantity: {item.quantity} * Rs.{item.price}</div>
                                             </div>
-                                            <div style={{ fontFamily: 'Montserrat',color: colors.mainTextColor }} className='text-base font-bold '>₹{(item.quantity * item.price).toFixed(2)}</div>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col items-end justify-between relative'>
-                                        <div style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='text-base font-bold uppercase'>In Stock</div>
-                                        <div style={{ borderColor: colors.secComponentColor, color: colors.textColor }} className='border-2 px-2 py-1 flex items-center justify-center rounded-lg w-20'>
-                                            <button onClick={() => removeFromCart(item.id)} className='absolute left-2 rounded'><FaMinus size={13} /></button>
-                                            <span style={{ color: colors.differentColorGreen, marginBottom: -2 }} className='mx-3 text-lg'>{item.quantity}</span>
-                                            <button onClick={() => addToCart(item)} className='absolute right-2 rounded'><FaPlus size={13} /></button>
-                                        </div>
-                                    </div>
 
-                                </li>
-
-                            ))}
-                        </ul>
+                                            <div className='flex flex-col items-end justify-between relative'>
+                                                <div style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='text-base font-bold uppercase'>
+                                                    In Stock
+                                                </div>
+                                                <div style={{ borderColor: colors.secComponentColor, color: colors.textColor }} className='border-2 px-2 py-1 flex items-center justify-center rounded-lg w-20'>
+                                                    <button onClick={() => removeFromCart(item.id)} className='absolute left-2 rounded'>
+                                                        <FaMinus size={13} />
+                                                    </button>
+                                                    <span style={{ color: colors.differentColorGreen, marginBottom: -2 }} className='mx-3 text-lg'>
+                                                        {item.quantity}
+                                                    </span>
+                                                    <button onClick={() => addToCart(item)} className='absolute right-2 rounded'>
+                                                        <FaPlus size={13} />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     )}
-
-
 
                 </div>
                 {cart.items.length > 0 &&
@@ -463,7 +491,9 @@ export default function MenuPage() {
                         <div>
                             {cart.items.length} items added
                         </div>
-                        <div className=' flex gap-1 items-center'>
+                        <div
+                            onClick={() => {console.log("YOUR ORDER IS SUCCESSFULLY PLACED")}}
+                            className='flex gap-1 items-center' style={{ cursor: 'pointer' }}>
                             Checkout
                             <IoMdArrowDroprightCircle style={{ marginBottom: 4 }} />
                         </div>

@@ -1,40 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import menuData from '../data/Menu.json';
 
-const images = [
-    { src: 'https://cdn.prod.website-files.com/5d7b77b063a9066d83e1209c/63b413d8d81a374a5459deed_62d9175f8ea638dfc25b18fd_Image%2520Super%2520Resolution%2520Hero.jpeg', alt: 'Image 1' },
-    { src: 'https://cdn.prod.website-files.com/5d7b77b063a9066d83e1209c/63b413d8d81a374a5459deed_62d9175f8ea638dfc25b18fd_Image%2520Super%2520Resolution%2520Hero.jpeg', alt: 'Image 2' },
-    { src: 'https://cdn.prod.website-files.com/5b26e3fda3234fe366aa392d/667ecfe783667cbda2950b5f_assets_website_signup_darwin.webp', alt: 'Image 3' },
-    { src: 'https://cdn.prod.website-files.com/5b26e3fda3234fe366aa392d/667ecfe783667cbda2950b5f_assets_website_signup_darwin.webp', alt: 'Image 4' },
-];
+const ImageGallery = ({ outletName }) => {
+    const [outlets, setOutlets] = useState([]);
 
-const ImageGallery = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    useEffect(() => {
+        const outlet = menuData.outlets.find(o => o.name === outletName);
+        setOutlets(outlet ? [outlet] : []);
+    }, [outletName]);
+
+    const uniqueItems = new Map();
+
+    outlets.forEach(outlet => {
+        outlet.menu.forEach(menu => {
+            menu.items.forEach(item => {
+                if (!uniqueItems.has(item.item)) {
+                    uniqueItems.set(item.item, {
+                        name: item.item,
+                        image: item.image,
+                        outletName: outlet.name,
+                    });
+                }
+            });
+        });
+    });
+
+    const itemsArray = Array.from(uniqueItems.values());
+    const images = itemsArray.map(item => ({
+        src: item.image,
+        name: item.name,
+    }));
+
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+    const selectedImage = images[selectedImageIndex] || { src: 'default_image_url', name: '' };
 
     return (
-       
-            <div
-                className='biggerdiv bg-white h-56 rounded-2xl flex justify-center items-end'
-                style={{
-                    backgroundImage: selectedImage ? `url(${selectedImage.src})` : undefined,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                }}
-                
-            >
-                <div className=' bg-slate-200 bg-opacity-60 w-[90%] h-[30%] flex justify-evenly py-2 rounded-lg mb-4'>
-                    {images.map((image, index) => (
-                        <div
-                            key={index}
-                            className='smallerdiv w-1/5 h-full bg-black rounded-lg cursor-pointer flex justify-center items-center'
-                            onClick={() => setSelectedImage(image)}
-                        >
-                            <img src={image.src} alt={image.alt} className='w-full h-full object-cover rounded-lg' />
-                        </div>
-                    ))}
-                </div>
-            </div>
+        <div
+            className='biggerdiv bg-white h-56 rounded-2xl flex justify-center items-end'
+            style={{
+                backgroundImage: selectedImage ? `url(${selectedImage.src})` : undefined,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}
 
-    );
+        >
+            {/* <div className=' bg-slate-200 bg-opacity-60 w-[90%] h-[30%] flex justify-evenly py-2 rounded-lg mb-4'>
+                {outlets.map((outlet, index) => (
+                    <div
+                        key={index}
+                        className='smallerdiv w-1/5 h-full bg-black rounded-lg cursor-pointer flex justify-center items-center'
+                        onClick={() => setSelectedImageIndex(outlet)}
+                    >
+                        <img src={outlet.src} alt={outlet.alt} className='w-full h-full object-cover rounded-lg' />
+                    </div>
+                ))}
+            </div> */}
+        </div>
+    )
 };
 
 export default ImageGallery;

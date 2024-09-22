@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const slides = [
-  { id: 1, text: "Slide 1", bgColor: "bg-red-500" },
-  { id: 2, text: "Slide 2", bgColor: "bg-green-500" },
-  { id: 3, text: "Slide 3", bgColor: "bg-blue-500" },
+  { id: 1, text1: "Food Truck on campus,", text2: "Sawariya", bgImage: "https://lh5.googleusercontent.com/p/AF1QipPB6yR5hSg3AtLevYuaUb4p0A-w75r-5y3Sxq-P=w1080-k-no", bgColor: "bg-red-500" },
+  { id: 2, text1: "Food Truck on campus,", text2: "Sawariya", bgImage: "https://lh5.googleusercontent.com/p/AF1QipPB6yR5hSg3AtLevYuaUb4p0A-w75r-5y3Sxq-P=w1080-k-no", bgColor: "bg-red-500" },
 ];
 
 const Banner = () => {
@@ -20,7 +19,7 @@ const Banner = () => {
 
   useEffect(() => {
     const slideInterval = setInterval(nextSlide, 4000);
-    return () => clearInterval(slideInterval); // Clear interval on unmount
+    return () => clearInterval(slideInterval);
   }, []);
 
   return (
@@ -29,13 +28,22 @@ const Banner = () => {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className={`min-w-full h-64 flex justify-center items-center text-white text-2xl ${slide.bgColor}`}
+            className="min-w-full h-[35vh] md:h-[50vh] lg:h-[55vh] relative flex items-center justify-center text-white text-2xl"
+            style={{
+              backgroundImage: slide.bgImage ? `url(${slide.bgImage})` : 'none',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
           >
-            <h2>{slide.text}</h2>
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="flex-col items-center justify-center z-10">
+              <h1 className='text-center text-2xl md:text-xl lg:text-3xl font-semibold'>{slide.text1}</h1>
+              <h2 className='text-center text-3xl md:text-2xl lg:text-9xl font-bold'>{slide.text2}</h2>
+            </div>
           </div>
         ))}
       </div>
-      <div style={{ fontFamily: 'Montserrat' }} className=" uppercase absolute top-4 left-4 bg-yellow-500 text-black text-sm font-bold px-2 py-1 rounded">
+      <div style={{ fontFamily: 'Montserrat' }} className="uppercase absolute top-4 left-4 bg-yellow-500 text-black text-sm font-bold px-2 py-1 rounded">
         Featured
       </div>
       <button

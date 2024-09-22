@@ -10,30 +10,50 @@ export const getStatus = (outlet) => {
     const currentMinutes = now.getMinutes();
     const currentTimeInMinutes = currentHour * 60 + currentMinutes;
 
-    const [openHour, openMinutes] = openingTime.split(' ')[0].split(':').map(Number);
-    const openPeriod = openingTime.includes('pm') && openHour !== 12 ? openHour + 12 : openHour;
-    const openingTimeInMinutes = openPeriod * 60 + openMinutes;
+    // Convert opening and closing time from 24-hour format
+    const [openHour, openMinutes] = openingTime.split(':').map(Number);
+    const openingTimeInMinutes = openHour * 60 + openMinutes;
 
-    const [closeHour, closeMinutes] = closingTime.split(' ')[0].split(':').map(Number);
-    const closePeriod = closingTime.includes('pm') && closeHour !== 12 ? closeHour + 12 : closeHour;
-    const closingTimeInMinutes = closePeriod * 60 + closeMinutes;
+    const [closeHour, closeMinutes] = closingTime.split(':').map(Number);
+    const closingTimeInMinutes = closeHour * 60 + closeMinutes;
 
+    // Check if today is an off day
     if (offDays.includes(currentDay)) {
         return { color: colors.differentColorRed, text: 'Closed Today' };
     }
 
-    const closingBufferStart = closingTimeInMinutes - 60;
-    const closingBufferEnd = closingTimeInMinutes;
-    const openingBufferStart = openingTimeInMinutes;
-    const openingBufferEnd = openingTimeInMinutes + 60;
+    // Handle overnight closing
+    const isOvernight = closingTimeInMinutes < openingTimeInMinutes;
 
-    if (currentTimeInMinutes >= closingBufferStart && currentTimeInMinutes < closingBufferEnd) {
-        return { color: colors.differentColorYellow, text: `Closing in ${closingTimeInMinutes - currentTimeInMinutes} minutes` };
-    } else if (currentTimeInMinutes >= openingBufferStart && currentTimeInMinutes < openingBufferEnd) {
-        return { color: colors.differentColorYellow, text: `Opening in ${openingTimeInMinutes - currentTimeInMinutes} minutes` };
-    } else if (currentTimeInMinutes >= openingTimeInMinutes && currentTimeInMinutes < closingTimeInMinutes) {
-        return { color: colors.differentColorGreen, text: 'Open' };
+    if (isOvernight) {
+        // Check if currently open
+        if (
+            (currentTimeInMinutes >= openingTimeInMinutes) || 
+            (currentTimeInMinutes < closingTimeInMinutes)
+        ) {
+            // Check for closing soon within a 60-minute buffer
+            if (currentTimeInMinutes >= closingTimeInMinutes - 60) {
+                return { color: colors.differentColorYellow, text: `Closing in ${closingTimeInMinutes - currentTimeInMinutes} minutes` };
+            }
+            return { color: colors.differentColorGreen, text: 'Open' };
+        }
     } else {
-        return { color: colors.differentColorRed, text: 'Closed' };
+        // Regular open/close check
+        if (currentTimeInMinutes >= openingTimeInMinutes && currentTimeInMinutes < closingTimeInMinutes) {
+            // Check for closing soon within a 60-minute buffer
+            if (currentTimeInMinutes >= closingTimeInMinutes - 60) {
+                return { color: colors.differentColorYellow, text: `Closing in ${closingTimeInMinutes - currentTimeInMinutes} minutes` };
+            }
+            return { color: colors.differentColorGreen, text: 'Open' };
+        }
     }
+
+    // Check for opening soon within a 60-minute buffer
+    if (currentTimeInMinutes < openingTimeInMinutes && 
+        currentTimeInMinutes >= openingTimeInMinutes - 60) {
+        return { color: colors.differentColorYellow, text: `Opening in ${openingTimeInMinutes - currentTimeInMinutes} minutes` };
+    }
+
+    // If not open and not within the opening or closing buffer, show closed
+    return { color: colors.differentColorRed, text: 'Closed' };
 };

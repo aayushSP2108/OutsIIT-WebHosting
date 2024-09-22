@@ -6,6 +6,8 @@ import { BsFillStarFill } from "react-icons/bs";
 import colors from '../styles/colors';
 import TruncatedTextComponent from '../components/TruncatedTextComponent';
 import Banner from '../components/Banner';
+import { getStatus } from '../components/OutletStatus';
+import Outlet from '../components/Outlet';
 
 const Home = () => {
   const [outlets, setOutlets] = useState([]);
@@ -72,60 +74,14 @@ const Home = () => {
       <div className=" px-4 flex-grow">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {outlets.map((outlet) => (
-            <div
-              key={outlet.id}
-              style={{ backgroundColor: colors.shadowColor}}
-              className="p-4 rounded-lg transition-shadow duration-300 cursor-pointer" //shadow-custom md:shadow-none md:hover:shadow-custom
-              onClick={() => handleOutletClick(outlet.name)}
-            >
-
-              <div className="relative w-full rounded-lg mb-2">
-                <img className='h-52 w-full object-cover rounded-lg' src={outlet.image} alt={outlet.name} />
-                <p
-                  style={{
-                    color: colors.backgroundColor,
-                    background: `linear-gradient(to right, ${colors.differentColorPurple},${colors.differentColorPurple}, transparent, transparent)`,
-                  }}
-                  className="absolute bottom-3 p-1 w-full text-xl md:text-2xl lg:text-xl"
-                >
-                  {outlet.location}
-                </p>
-              </div>
-
-
-              <div className='flex justify-between items-center'>
-                <div className='  w-[67%]'>
-                  <h2
-                    className="text-2xl md:text-2xl lg:text-2xl"
-                    style={{
-                      color: colors.mainTextColor,
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    }}
-                  >
-                    {outlet.name}
-                  </h2>
-                  <p style={{ color: colors.textColor, marginBottom: -6 }} className='text-xl md:text-xl lg:text-xl'>{outlet.menuType.join(', ')}</p>
-                </div>
-                <div className='flex flex-col justify-end items-end '>
-                  <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.differentColorGreen, color: 'white' }} className='flex items-center gap-1 rounded-lg px-2 text-white w-16'>
-                    <p className="text-lg md:text-xl font-semibold">{outlet.rating.$numberInt}</p>
-                    <BsFillStarFill size={16} />
-                  </div>
-                  <div className='flex gap-1 border-b-2 border-dotted' style={{ borderBlockColor: colors.textColor, fontFamily: 'Montserrat', color: colors.mainTextColor }}>
-                    <p className="text-xs md:text-sm font-bold">{outlet.ratingcount.$numberInt}</p>
-                    <p className="text-xs md:text-sm font-bold">Store ratings</p>
-                  </div>
-                </div>
-
-              </div>
+            <div onClick={() => handleOutletClick(outlet.name)}>
+              <Outlet outlet={outlet} />
             </div>
           ))}
         </div>
       </div>
 
-      <footer style={{backgroundColor: colors.componentColor}} className=" text-gray-400 py-4 mt-10 text-center">
+      <footer style={{ backgroundColor: colors.componentColor }} className=" text-gray-400 py-4 mt-10 text-center">
         <p className='text-xl md:text-3xl font-bold'>&copy; 2024 IIT Gandhinagar. All rights reserved.</p>
         <p className='text-xl md:text-2xl font-bold'>Follow us on social media!</p>
         <div className="flex justify-center space-x-4 mt-2">
