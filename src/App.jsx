@@ -20,13 +20,13 @@ function App() {
           </li>
         </ul>
       </nav> */}
-      {/* <div style={{ fontFamily: 'Poppins, sans-serif' }} className=' z-0 cursor-none w-full text text-white bg-[#171C24] ' > */}
+      <div style={{ fontFamily: 'Zain', fontSize: 24 }}>
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/menu/:outletName" element={<MenuPage />} />
         </Routes>
-      {/* </div> */}
+      </div>
     </HashRouter>
   )
 }

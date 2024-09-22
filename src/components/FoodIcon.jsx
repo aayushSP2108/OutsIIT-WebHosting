@@ -7,19 +7,19 @@ const FoodIcon = ({ type, size, padding }) => {
             Icon: IoEllipse,
             borderColor: 'green',
             iconColor: 'green',
-            bgColor: 'bg-green-300',
+            // bgColor: 'bg-gray-50',
         },
         Veg: {
             Icon: IoEllipse,
-            borderColor: '#a3e635',
-            iconColor: '#a3e635',
-            bgColor: 'bg-lime-600',
+            borderColor: 'green',
+            iconColor: 'green',
+            // bgColor: '#FFFFFF',
         },
         NonVeg: {
             Icon: IoTriangle,
-            borderColor: 'red',
-            iconColor: 'red',
-            bgColor: 'bg-red-300',
+            borderColor: 'rgb(185 28 28)',
+            iconColor: 'rgb(185 28 28)',
+            // bgColor: 'bg-red-300',
         },
     };
 

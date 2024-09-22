@@ -10,17 +10,23 @@ export default function Navbar() {
     };
 
     return (
-        <nav style={{backgroundColor: colors.subBackgroundColor}} className="shadow fixed top-0 left-0 w-full z-10">
+<nav
+  style={{
+    backgroundColor: colors.subBackgroundColor,
+    // boxShadow: '0 3px 10px rgba(155, 155, 155, 0.5)', // Adjust this to your needs
+  }}
+  className="shadow-custom fixed top-0 left-0 w-full z-10"
+>
             <div className="container mx-auto flex justify-between items-center p-4">
-                <div className="text-lg font-bold">
-                    <a href="#" className="text-white">Logo</a>
+                <div className="text-4xl font-bold">
+                    <a href="#" style={{color: 'white'}}>OutsIIT</a>
                 </div>
 
                 <div className="hidden md:flex space-x-4">
-                    <a href="#" className="text-gray-300 hover:text-white">Home</a>
-                    <a href="#" className="text-gray-300 hover:text-white">Productions</a>
-                    <a href="#about" className="text-gray-300 hover:text-white">About</a>
-                    <a href="#" className="text-gray-300 hover:text-white">Favourites</a>
+                    <a href="#" style={{color:colors.textColor}}>Home</a>
+                    <a href="#" style={{color:colors.textColor}} >Productions</a>
+                    <a href="#about" style={{color:colors.textColor}} >About</a>
+                    <a href="#" style={{color:colors.textColor}}>Favourites</a>
                 </div>
 
                 <div className="flex items-center space-x-2">

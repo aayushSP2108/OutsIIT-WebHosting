@@ -7,7 +7,7 @@ export default function FooterMenu() {
     return (
         <div className="mb-56 text-white p-4">
     <div className="gap-3">
-        <h2 className="font-black text-2xl sm:text-3xl">Disclaimer:</h2>
+        <h2 style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }}  className="font-black text-2xl sm:text-3xl">Disclaimer:</h2>
         <p style={{ fontFamily: 'Montserrat', color: colors.textColor }} className="text-sm sm:text-base font-bold mt-2">
             Be mindful of portion sizes, especially when dining out, as restaurant portions are often larger than necessary.
         </p>

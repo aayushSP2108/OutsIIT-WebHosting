@@ -24,8 +24,9 @@
             "ratingcount": {
                 "$numberInt": "7"
             },
-            "image2":"https://img.restaurantguru.com/r376-2-degree-cafe-design-2023-12.jpg",
-            "image": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/thumb/amulstore.jpg",
+            "image3": "https://news.iitgn.ac.in/wp/wp-content/uploads/2020/05/amul-1-999x640.jpg",
+            "image2": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/amul.JPG",
+            "image": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/amul.JPG",
             "details": "The Amul Store at the campus is a one-stop shop for a variety of dairy products including milk, cheese, ice cream, and other popular Amul products.",
             "openingTime": "10:00 pm",
             "closingTime": "10:00 pm",
@@ -129,7 +130,8 @@
             "featured": false,
             "type": "NonVeg",
             "offDays": [
-                "Monday", "Tuesday"
+                "Monday",
+                "Tuesday"
             ],
             "menuType": [
                 "Snack",
@@ -143,13 +145,13 @@
             "ratingcount": {
                 "$numberInt": "7"
             },
-            "image4":"https://img.restaurantguru.com/r9db-2-degree-cafe-photo.jpg",
-            "image3":"https://img.restaurantguru.com/r8d6-2-degree-cafe-picture-2021-09-35620.jpg",
-            "image2":"https://img.restaurantguru.com/r376-2-degree-cafe-design-2023-12.jpg",
+            "image4": "https://img.restaurantguru.com/r9db-2-degree-cafe-photo.jpg",
+            "image3": "https://img.restaurantguru.com/r8d6-2-degree-cafe-picture-2021-09-35620.jpg",
+            "image2": "https://img.restaurantguru.com/r376-2-degree-cafe-design-2023-12.jpg",
             "image": "https://img.restaurantguru.com/r515-2-degree-cafe-interior.jpg",
             "details": "2 Degree Café offers a cozy atmosphere perfect for coffee enthusiasts. Enjoy a variety of coffees and light snacks.",
             "openingTime": "11:30 am",
-            "closingTime": "1:00 pm",
+            "closingTime": "9:00 pm",
             "leaveDay": "None",
             "userId": "2DegreeCafé.iitgn@gmail.com",
             "menu": [
@@ -253,7 +255,390 @@
                 "$numberInt": "0"
             }
         },
-        {"_id":{"$oid":"66eff6b0345291a69f80a178"},"id":"1722387216506","name":"Mahavir Healthy Food","shopkeeperName":"Not specified","upiId":"upi@123","featured":false,"type":"Veg","menuType":["Snack","Meal","Salad"],"menu":[{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e15"},"title":"Beverages","items":[{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e16"},"id":"1722387216507","item":"Masala Chai","price":"50","type":"Veg","description":"Traditional Indian spiced tea.","category":"Hot_Cafe","image":"https://www.teacupsfull.com/cdn/shop/articles/Screenshot_2023-10-20_at_11.07.13_AM.png?v=1697780292","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"}},{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e17"},"id":"1722387216508","item":"Cold Coffee","price":"70","type":"Veg","description":"Refreshing cold coffee.","category":"Cold_Cafe","image":"https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Cold-Coffee-Thumbnail.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"}},{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e18"},"id":"1722387216509","item":"Cold Coco","price":"60","type":"Veg","description":"Chilled chocolate-flavored drink.","category":"Cold_Cafe","image":"https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/cre8krdqeeuyq74gbpsy","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"}},{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e19"},"id":"1722387216510","item":"Iced Tea","price":"65","type":"Veg","description":"Chilled tea served with ice.","category":"Cold_Cafe","image":"https://www.funfoodfrolic.com/wp-content/uploads/2017/05/Iced-Tea-3.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"}},{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e1a"},"id":"1722387216511","item":"Orange Juice","price":"50","type":"Veg","description":"Freshly squeezed orange juice.","category":"Beverage","image":"https://hips.hearstapps.com/hmg-prod/images/is-orange-juice-healthy-1578411142.jpg?crop=0.8893081761006288xw:1xh;center,top&resize=1200:*","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"}},{"_id":{"$oid":"64c8c8a965b4b5f1a71a8e1b"},"id":"1722387216512","item":"Mango Shake","price":"70","type":"Veg","description":"Thick and luscious mango-flavored shake.","category":"Cold_Beverage","image":"https://gheespot.com/wp-content/uploads/2019/09/Mango-Shake.jpeg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"}}]}],"location":"Emiet Hostel","details":"Mahavir Healthy Food offers nutritious and wholesome meals. They are open late into the night for those looking for healthy food options.","image":"https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/mahavir2.jpg","openingTime":"4:00 pm","closingTime":"2:00 am","leaveDay":"None","offDays":["None"],"rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"userId":"MahavirHealthyFood.iitgn@gmail.com","__v":{"$numberInt":"0"}},
-        {"_id":{"$oid":"66eff6f5345291a69f80a179"},"id":"1721926168238","name":"VS Fastfood","shopkeeperName":"VS Fastfood Owner","upiId":"upi@123","featured":false,"type":"NonVeg","offDays":["None"],"menuType":["Snack","Meal","Salad"],"location":"Hiqom Hostel","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"image":"https://www.example.com/vsfastfood.jpg","details":"VS Fastfood serves quick and tasty non-vegetarian fast food items. Open from early morning to late night, it's a favorite spot for late-night cravings.","openingTime":"9:00 am","closingTime":"6:00 am","leaveDay":"None","userId":"VSFastfood.iitgn@gmail.com","menu":[{"title":"Beverages","items":[{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a2"},"id":"1722045477415","item":"Masala Chai","price":"50","type":"Veg","description":"Traditional Indian spiced tea.","category":"Hot_Cafe","image":"https://www.teacupsfull.com/cdn/shop/articles/Screenshot_2023-10-20_at_11.07.13_AM.png?v=1697780292","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true},{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a3"},"id":"1722045492376","item":"Cold Coffee","price":"70","type":"Veg","description":"Refreshing cold coffee.","category":"Cold_Cafe","image":"https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Cold-Coffee-Thumbnail.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true},{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a4"},"id":"1722046085011","item":"Cold Coco","price":"60","type":"Veg","description":"Chilled chocolate-flavored drink.","category":"Cold_Cafe","image":"https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/cre8krdqeeuyq74gbpsy","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true},{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a5"},"id":"1722046085012","item":"Iced Tea","price":"65","type":"Veg","description":"Chilled tea served with ice.","category":"Cold_Cafe","image":"https://www.funfoodfrolic.com/wp-content/uploads/2017/05/Iced-Tea-3.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true}],"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a6"}},{"title":"Snacks","items":[{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a7"},"id":"1722046085013","item":"Sandwich","price":"100","type":"Veg","description":"Classic sandwich with assorted fillings.","category":"Snacks","image":"https://www.vegrecipesofindia.com/wp-content/uploads/2014/01/grilled-sandwich-4.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true},{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a8"},"id":"1722046085014","item":"Maggi","price":"80","type":"Veg","description":"Popular instant noodles dish.","category":"Snacks","image":"https://www.honeywhatscooking.com/wp-content/uploads/2022/02/Pav-Bhaji-Maggi-Noodles4-e1672251408882.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true},{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8a9"},"id":"1722046085015","item":"Puff","price":"40","type":"Veg","description":"Flaky pastry filled with savory stuffing.","category":"Snacks","image":"https://theobroma.in/cdn/shop/files/Chicken_CheesePuff-Square.jpg?v=1711609351","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true}],"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8aa"}},{"title":"Meals","items":[{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8ab"},"id":"1722046085016","item":"Noodles","price":"90","type":"Veg","description":"Stir-fried noodles with vegetables.","category":"Hot_Meal","image":"https://recipetineats.com/wp-content/uploads/2019/11/Lo-Mein_3.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true},{"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8ac"},"id":"1722046085017","item":"Poha","price":"35","type":"Veg","description":"Flattened rice cooked with spices and vegetables.","category":"Hot_Meal","image":"https://media.vogue.in/wp-content/uploads/2020/10/poha-recipe-1920x1080.jpg","rating":{"$numberInt":"3"},"ratingcount":{"$numberInt":"7"},"status":true}],"_id":{"$oid":"64c4f2ec0cf2e2b6d5e2b8ad"}}],"__v":{"$numberInt":"0"}}
+        {
+            "_id": {
+                "$oid": "66eff6b0345291a69f80a178"
+            },
+            "id": "1722387216506",
+            "name": "Mahavir Healthy Food",
+            "shopkeeperName": "Not specified",
+            "upiId": "upi@123",
+            "featured": false,
+            "type": "Veg",
+            "menuType": [
+                "Snack",
+                "Meal",
+                "Salad"
+            ],
+            "menu": [
+                {
+                    "_id": {
+                        "$oid": "64c8c8a965b4b5f1a71a8e15"
+                    },
+                    "title": "Beverages",
+                    "items": [
+                        {
+                            "_id": {
+                                "$oid": "64c8c8a965b4b5f1a71a8e16"
+                            },
+                            "id": "1722387216507",
+                            "item": "Masala Chai",
+                            "price": "50",
+                            "type": "Veg",
+                            "description": "Traditional Indian spiced tea.",
+                            "category": "Hot_Cafe",
+                            "image": "https://www.teacupsfull.com/cdn/shop/articles/Screenshot_2023-10-20_at_11.07.13_AM.png?v=1697780292",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c8c8a965b4b5f1a71a8e17"
+                            },
+                            "id": "1722387216508",
+                            "item": "Cold Coffee",
+                            "price": "70",
+                            "type": "Veg",
+                            "description": "Refreshing cold coffee.",
+                            "category": "Cold_Cafe",
+                            "image": "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Cold-Coffee-Thumbnail.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c8c8a965b4b5f1a71a8e18"
+                            },
+                            "id": "1722387216509",
+                            "item": "Cold Coco",
+                            "price": "60",
+                            "type": "Veg",
+                            "description": "Chilled chocolate-flavored drink.",
+                            "category": "Cold_Cafe",
+                            "image": "https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/cre8krdqeeuyq74gbpsy",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c8c8a965b4b5f1a71a8e19"
+                            },
+                            "id": "1722387216510",
+                            "item": "Iced Tea",
+                            "price": "65",
+                            "type": "Veg",
+                            "description": "Chilled tea served with ice.",
+                            "category": "Cold_Cafe",
+                            "image": "https://www.funfoodfrolic.com/wp-content/uploads/2017/05/Iced-Tea-3.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c8c8a965b4b5f1a71a8e1a"
+                            },
+                            "id": "1722387216511",
+                            "item": "Orange Juice",
+                            "price": "50",
+                            "type": "Veg",
+                            "description": "Freshly squeezed orange juice.",
+                            "category": "Beverage",
+                            "image": "https://hips.hearstapps.com/hmg-prod/images/is-orange-juice-healthy-1578411142.jpg?crop=0.8893081761006288xw:1xh;center,top&resize=1200:*",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c8c8a965b4b5f1a71a8e1b"
+                            },
+                            "id": "1722387216512",
+                            "item": "Mango Shake",
+                            "price": "70",
+                            "type": "Veg",
+                            "description": "Thick and luscious mango-flavored shake.",
+                            "category": "Cold_Beverage",
+                            "image": "https://gheespot.com/wp-content/uploads/2019/09/Mango-Shake.jpeg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "location": "Emiet Hostel",
+            "details": "Mahavir Healthy Food offers nutritious and wholesome meals. They are open late into the night for those looking for healthy food options.",
+            "image": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/mahavir2.jpg",
+            "openingTime": "4:00 pm",
+            "closingTime": "2:00 am",
+            "leaveDay": "None",
+            "offDays": [
+                "None"
+            ],
+            "rating": {
+                "$numberInt": "3"
+            },
+            "ratingcount": {
+                "$numberInt": "7"
+            },
+            "userId": "MahavirHealthyFood.iitgn@gmail.com",
+            "__v": {
+                "$numberInt": "0"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "66eff6f5345291a69f80a179"
+            },
+            "id": "1721926168238",
+            "name": "VS Fastfood",
+            "shopkeeperName": "VS Fastfood Owner",
+            "upiId": "upi@123",
+            "featured": false,
+            "type": "NonVeg",
+            "offDays": [
+                "None"
+            ],
+            "menuType": [
+                "Snack",
+                "Meal",
+                "Salad"
+            ],
+            "location": "Hiqom Hostel",
+            "rating": {
+                "$numberInt": "3"
+            },
+            "ratingcount": {
+                "$numberInt": "7"
+            },
+            "image": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/dawat.jpg",
+            "details": "VS Fastfood serves quick and tasty non-vegetarian fast food items. Open from early morning to late night, it's a favorite spot for late-night cravings.",
+            "openingTime": "9:00 am",
+            "closingTime": "6:00 am",
+            "leaveDay": "None",
+            "userId": "VSFastfood.iitgn@gmail.com",
+            "menu": [
+                {
+                    "title": "Beverages",
+                    "items": [
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a2"
+                            },
+                            "id": "1722045477415",
+                            "item": "Masala Chai",
+                            "price": "50",
+                            "type": "Veg",
+                            "description": "Traditional Indian spiced tea.",
+                            "category": "Hot_Cafe",
+                            "image": "https://www.teacupsfull.com/cdn/shop/articles/Screenshot_2023-10-20_at_11.07.13_AM.png?v=1697780292",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a3"
+                            },
+                            "id": "1722045492376",
+                            "item": "Cold Coffee",
+                            "price": "70",
+                            "type": "Veg",
+                            "description": "Refreshing cold coffee.",
+                            "category": "Cold_Cafe",
+                            "image": "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Cold-Coffee-Thumbnail.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a4"
+                            },
+                            "id": "1722046085011",
+                            "item": "Cold Coco",
+                            "price": "60",
+                            "type": "Veg",
+                            "description": "Chilled chocolate-flavored drink.",
+                            "category": "Cold_Cafe",
+                            "image": "https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/cre8krdqeeuyq74gbpsy",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a5"
+                            },
+                            "id": "1722046085012",
+                            "item": "Iced Tea",
+                            "price": "65",
+                            "type": "Veg",
+                            "description": "Chilled tea served with ice.",
+                            "category": "Cold_Cafe",
+                            "image": "https://www.funfoodfrolic.com/wp-content/uploads/2017/05/Iced-Tea-3.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        }
+                    ],
+                    "_id": {
+                        "$oid": "64c4f2ec0cf2e2b6d5e2b8a6"
+                    }
+                },
+                {
+                    "title": "Snacks",
+                    "items": [
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a7"
+                            },
+                            "id": "1722046085013",
+                            "item": "Sandwich",
+                            "price": "100",
+                            "type": "Veg",
+                            "description": "Classic sandwich with assorted fillings.",
+                            "category": "Snacks",
+                            "image": "https://www.vegrecipesofindia.com/wp-content/uploads/2014/01/grilled-sandwich-4.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a8"
+                            },
+                            "id": "1722046085014",
+                            "item": "Maggi",
+                            "price": "80",
+                            "type": "Veg",
+                            "description": "Popular instant noodles dish.",
+                            "category": "Snacks",
+                            "image": "https://www.honeywhatscooking.com/wp-content/uploads/2022/02/Pav-Bhaji-Maggi-Noodles4-e1672251408882.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8a9"
+                            },
+                            "id": "1722046085015",
+                            "item": "Puff",
+                            "price": "40",
+                            "type": "Veg",
+                            "description": "Flaky pastry filled with savory stuffing.",
+                            "category": "Snacks",
+                            "image": "https://theobroma.in/cdn/shop/files/Chicken_CheesePuff-Square.jpg?v=1711609351",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        }
+                    ],
+                    "_id": {
+                        "$oid": "64c4f2ec0cf2e2b6d5e2b8aa"
+                    }
+                },
+                {
+                    "title": "Meals",
+                    "items": [
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8ab"
+                            },
+                            "id": "1722046085016",
+                            "item": "Noodles",
+                            "price": "90",
+                            "type": "Veg",
+                            "description": "Stir-fried noodles with vegetables.",
+                            "category": "Hot_Meal",
+                            "image": "https://recipetineats.com/wp-content/uploads/2019/11/Lo-Mein_3.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        },
+                        {
+                            "_id": {
+                                "$oid": "64c4f2ec0cf2e2b6d5e2b8ac"
+                            },
+                            "id": "1722046085017",
+                            "item": "Poha",
+                            "price": "35",
+                            "type": "Veg",
+                            "description": "Flattened rice cooked with spices and vegetables.",
+                            "category": "Hot_Meal",
+                            "image": "https://media.vogue.in/wp-content/uploads/2020/10/poha-recipe-1920x1080.jpg",
+                            "rating": {
+                                "$numberInt": "3"
+                            },
+                            "ratingcount": {
+                                "$numberInt": "7"
+                            },
+                            "status": true
+                        }
+                    ],
+                    "_id": {
+                        "$oid": "64c4f2ec0cf2e2b6d5e2b8ad"
+                    }
+                }
+            ],
+            "__v": {
+                "$numberInt": "0"
+            }
+        }
     ]
 }

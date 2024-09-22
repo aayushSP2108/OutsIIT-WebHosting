@@ -1,7 +1,8 @@
+// getStatus.jsx
 import React from 'react';
-import colors from '../styles/colors';
+import colors from '../styles/colors'; // Adjust the path based on your folder structure
 
-export const OutletStatus = ({ outlet }) => {
+export const getStatus = (outlet) => {
     const { offDays, openingTime, closingTime } = outlet;
     const now = new Date();
     const currentDay = now.toLocaleString('en-US', { weekday: 'long' });
@@ -18,12 +19,7 @@ export const OutletStatus = ({ outlet }) => {
     const closingTimeInMinutes = closePeriod * 60 + closeMinutes;
 
     if (offDays.includes(currentDay)) {
-        return (
-            <div>
-                <p>Closed Today</p>
-                <p>Off Days: {offDays.join(', ')}</p>
-            </div>
-        );
+        return { color: colors.differentColorRed, text: 'Closed Today' };
     }
 
     const closingBufferStart = closingTimeInMinutes - 60;
@@ -32,12 +28,12 @@ export const OutletStatus = ({ outlet }) => {
     const openingBufferEnd = openingTimeInMinutes + 60;
 
     if (currentTimeInMinutes >= closingBufferStart && currentTimeInMinutes < closingBufferEnd) {
-        return <p style={{ color: colors.differentColorYellow}} className=' text-3xl'>Closing in {closingTimeInMinutes - currentTimeInMinutes} minutes</p>;
+        return { color: colors.differentColorYellow, text: `Closing in ${closingTimeInMinutes - currentTimeInMinutes} minutes` };
     } else if (currentTimeInMinutes >= openingBufferStart && currentTimeInMinutes < openingBufferEnd) {
-        return <p style={{ color: colors.differentColorYellow}} className=' text-yellow-400 text-3xl'>Opening in {openingTimeInMinutes - currentTimeInMinutes} minutes</p>;
+        return { color: colors.differentColorYellow, text: `Opening in ${openingTimeInMinutes - currentTimeInMinutes} minutes` };
     } else if (currentTimeInMinutes >= openingTimeInMinutes && currentTimeInMinutes < closingTimeInMinutes) {
-        return <p style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat'}} className=' font-semibold text-3xl uppercase'>Open</p>;
+        return { color: colors.differentColorGreen, text: 'Open' };
     } else {
-        return <p style={{ color: colors.differentColorRed, fontFamily: 'Montserrat'}} className=' font-semibold text-3xl uppercase'>Closed</p>;
+        return { color: colors.differentColorRed, text: 'Closed' };
     }
 };
