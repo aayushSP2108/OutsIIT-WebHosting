@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import menuData from '../data/Menu.json';
 import { BsFillStarFill } from "react-icons/bs";
-import colors from '../styles/colors'; // Import the colors
+import colors from '../styles/colors';
 
 const Home = () => {
   const [outlets, setOutlets] = useState([]);
@@ -32,7 +32,7 @@ const Home = () => {
           {outlets.map((outlet) => (
             <div
               key={outlet.id}
-              className="p-4 rounded-lg transition-shadow duration-300 cursor-pointer hover:border-[1px] hover:shadow-custom"
+              className="p-4 rounded-lg transition-shadow duration-300 cursor-pointer hover:shadow-custom"
               onClick={() => handleOutletClick(outlet.name)}
             >
               <img src={outlet.image} className="h-48 w-full object-cover rounded-lg mb-2" alt={outlet.name} />
