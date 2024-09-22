@@ -4,6 +4,9 @@ import menuData from '../data/Menu.json';
 import Navbar from '../components/Navbar';
 import { IoHeart } from "react-icons/io5";
 import ImageGallery from '../components/ImageGallery';
+import FoodIcon from '../components/FoodIcon';
+import Rating from '../components/Rating';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 
 export default function MenuPage() {
     const { outletName } = useParams();
@@ -22,7 +25,7 @@ export default function MenuPage() {
     useEffect(() => {
         const savedCarts = localStorage.getItem('carts');
         const carts = savedCarts ? JSON.parse(savedCarts) : {};
-        carts[outletName] = cart; // Update only the current outlet's cart
+        carts[outletName] = cart;
         localStorage.setItem('carts', JSON.stringify(carts));
     }, [cart, outletName]);
 
@@ -112,7 +115,7 @@ export default function MenuPage() {
                     };
                 }
             }
-            return prevCart; // Return the previous cart if item not found
+            return prevCart;
         });
     };
 
@@ -150,7 +153,7 @@ export default function MenuPage() {
                     )}
                 </div>
 
-                <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-800 p-2 overflow-x-auto flex space-x-4 z-10">
+                <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-800 px-4 py-2 overflow-x-auto flex space-x-4 z-10">
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
@@ -176,14 +179,13 @@ export default function MenuPage() {
                         outlet.menu.map((category, index) => (
                             <div key={category._id} className="mb-6" ref={el => categoryRefs.current[index] = el}>
                                 <h2 className="text-2xl font-semibold mb-2">{category.title}</h2>
-                                <ul className='flex flex-wrap w-full justify-between'>
-
+                                <ul className='hidden md:flex flex-wrap w-full justify-between'>
                                     {category.items.map((item) => {
                                         const cartItem = cart.items.find(cartItem => cartItem.id === item.id);
                                         const quantity = cartItem ? cartItem.quantity : 0;
 
                                         return (
-                                            <li key={item.id} className="mb-2 w-full sm:w-[48%] md:w-[30%] flex-shrink-0 relative">
+                                            <li key={item.id} className="mb-2 w-full sm:w-[48%] md:w-[48%] lg:w-[31%] flex-shrink-0 relative">
                                                 <img src={item.image} alt={item.item} className="h-64 w-full mr-4 object-cover rounded-2xl" />
                                                 <span className="absolute top-3 right-3 cursor-pointer" onClick={() => toggleLikeItem(item.id)}>
                                                     <IoHeart className={`p-2 rounded-full bg-slate-100 bg-opacity-80`} size={35} style={{ color: likedItems.has(item.id) ? 'red' : 'black' }} />
@@ -207,8 +209,47 @@ export default function MenuPage() {
                                             </li>
                                         );
                                     })}
-
                                 </ul>
+
+                                {category.items.map((item) => {
+                                    const cartItem = cart.items.find(cartItem => cartItem.id === item.id);
+                                    const quantity = cartItem ? cartItem.quantity : 0;
+
+                                    return (
+                                        <li key={item.id} className='flex md:hidden  mb-16 relative p-2'> 
+                                            <div className='w-[60%]'> 
+                                                <div>
+                                                    <FoodIcon type={item.type} size={12} padding={3} />
+                                                </div>
+                                                <div>{item.item}</div>
+                                                <div>{item.price}</div>
+                                                <div className='flex gap-2'>
+                                                    <Rating rating={item.rating.$numberInt} />
+                                                    <div> {item.ratingcount.$numberInt} ratings</div>
+                                                </div>
+                                                <div>{item.description}</div>
+                                            </div>
+                                            <img src={item.image} alt={item.item} className="h-40 w-[40%] object-cover rounded-2xl" />
+
+                                            {quantity > 0 ? (
+                                                <div className=' border-2 border-l-indigo-50 flex items-center justify-evenly absolute right-[9%] -bottom-4 w-28 h-10 bg-slate-600 rounded-lg'>
+                                                    {/* <div className='flex items-center'> */}
+                                                    <button onClick={() => removeFromCart(item.id)} className=' text-white rounded'><FaMinus /></button>
+                                                    <span className='mx-2'>{quantity}</span>
+                                                    <button onClick={() => addToCart(item)} className=' text-white rounded '><FaPlus /></button>
+                                                    {/* </div> */}
+                                                </div>
+                                            ) : (
+                                                <div className='border-2 border-l-indigo-50 absolute flex items-center justify-center right-[9%] -bottom-4 w-28 h-10 bg-slate-600 rounded-lg'>
+                                                    <button onClick={() => addToCart(item)}>Add</button>
+                                                </div>
+                                            )}
+
+                                        </li>
+                                    );
+                                })}
+
+
                             </div>
                         ))
                     ) : (
@@ -217,7 +258,7 @@ export default function MenuPage() {
                 </div>
 
 
-                <div className='p-8 w-[30%] shadow-md rounded-lg'>
+                <div className='p-8 w-[30%] shadow-md rounded-lg hidden md:block'>
                     <ImageGallery />
 
                     <div className='flex justify-between items-center mt-6'>
@@ -269,7 +310,19 @@ export default function MenuPage() {
                         </ul>
                     )}
 
+
+
                 </div>
+                {cart.items.length > 0 &&
+                    <div className="md:hidden fixed bottom-10 left-0 w-full bg-[#ff3c00] py-2 px-4 overflow-x-auto flex space-x-4 z-10 justify-between">
+                        <div>
+                            {cart.items.length} items added
+                        </div>
+                        <div>
+                            Checkout
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );
