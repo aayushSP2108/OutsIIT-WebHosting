@@ -22,7 +22,7 @@ function App() {
       </nav> */}
       {/* <div style={{ fontFamily: 'Poppins, sans-serif' }} className=' z-0 cursor-none w-full text text-white bg-[#171C24] ' > */}
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/menu/:outletName" element={<MenuPage />} />
         </Routes>

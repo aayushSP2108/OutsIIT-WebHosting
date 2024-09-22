@@ -6,7 +6,10 @@ import { IoHeart } from "react-icons/io5";
 import ImageGallery from '../components/ImageGallery';
 import FoodIcon from '../components/FoodIcon';
 import Rating from '../components/Rating';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FaCaretRight, FaMinus, FaPlus, FaRegQuestionCircle } from 'react-icons/fa';
+
+import TruncatedTextComponent from '../components/TruncatedTextComponent';
+import FooterMenu from '../components/FooterMenu';
 
 export default function MenuPage() {
     const { outletName } = useParams();
@@ -186,7 +189,18 @@ export default function MenuPage() {
 
                                         return (
                                             <li key={item.id} className="mb-2 w-full sm:w-[48%] md:w-[48%] lg:w-[31%] flex-shrink-0 relative">
-                                                <img src={item.image} alt={item.item} className="h-64 w-full mr-4 object-cover rounded-2xl" />
+                                                <div className="relative group overflow-hidden rounded-2xl">
+                                                    <img
+                                                        src={item.image}
+                                                        alt={item.item}
+                                                        className="h-64 w-full mr-4 object-cover  transition-transform duration-300 group-hover:scale-110"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 flex items-center justify-center transition-opacity duration-300">
+                                                        <p className="text-white text-center p-4">{item.description}</p>
+                                                    </div>
+                                                </div>
+
+
                                                 <span className="absolute top-3 right-3 cursor-pointer" onClick={() => toggleLikeItem(item.id)}>
                                                     <IoHeart className={`p-2 rounded-full bg-slate-100 bg-opacity-80`} size={35} style={{ color: likedItems.has(item.id) ? 'red' : 'black' }} />
                                                 </span>
@@ -216,8 +230,8 @@ export default function MenuPage() {
                                     const quantity = cartItem ? cartItem.quantity : 0;
 
                                     return (
-                                        <li key={item.id} className='flex md:hidden  mb-16 relative p-2'> 
-                                            <div className='w-[60%]'> 
+                                        <li key={item.id} className='flex md:hidden  mb-16 relative p-2'>
+                                            <div className='w-[60%]'>
                                                 <div>
                                                     <FoodIcon type={item.type} size={12} padding={3} />
                                                 </div>
@@ -250,11 +264,13 @@ export default function MenuPage() {
                                 })}
 
 
+
                             </div>
                         ))
                     ) : (
                         <p>No menu available</p>
                     )}
+                    <FooterMenu />
                 </div>
 
 
@@ -287,21 +303,24 @@ export default function MenuPage() {
                             {cart.items.map((item) => (
                                 <li key={item.id} className='flex justify-between  mb-2'>
                                     <div className='flex '>
-                                        <img src={item.image} alt={item.item} className="h-20 w-20 mr-4 object-cover rounded-lg" />
+                                        <img src={item.image} alt={item.item} className=" border-2 h-20 w-20 mr-4 object-cover rounded-lg" />
                                         <div className=' flex flex-col justify-between'>
                                             <div>
-                                                <div className='text-lg font-semibold text-gray-800'>{item.item.length}</div>
-                                                <div className='text-sm text-gray-600'>quantity: {item.quantity} * ${item.price}</div>
+                                                <div className='text-lg font-semibold text-gray-100'>
+                                                    <TruncatedTextComponent text={item.item} maxLength={11} />
+                                                    {/* {item.item.length} */}
+                                                </div>
+                                                <div className='text-sm text-gray-300'>quantity: {item.quantity} * ${item.price}</div>
                                             </div>
-                                            <div className='text-lg font-bold text-gray-800'>${(item.quantity * item.price).toFixed(2)}</div>
+                                            <div className='text-lg font-bold text-gray-100'>${(item.quantity * item.price).toFixed(2)}</div>
                                         </div>
                                     </div>
                                     <div className='flex flex-col items-end justify-between'>
                                         <div className='text-sm text-green-500 font-medium'>In Stock</div>
-                                        <div className='flex items-center border rounded-md overflow-hidden mt-1'>
-                                            <button className='px-2 py-1 text-lg font-bold '>-</button>
-                                            <div className='px-3 text'>{item.quantity}</div>
-                                            <button className='px-2 py-1 text-lg font-bold '>+</button>
+                                            <div className=' border-2 p-2 border-l-indigo-50 flex items-center justify-evenly  h-10 bg-slate-600 rounded-lg'>
+                                                <button onClick={() => removeFromCart(item.id)} className=' text-white rounded'><FaMinus /></button>
+                                                <span className='mx-3'>{item.quantity}</span>
+                                                <button onClick={() => addToCart(item)} className=' text-white rounded '><FaPlus /></button>
                                         </div>
                                     </div>
                                 </li>
