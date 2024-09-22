@@ -428,8 +428,15 @@ export default function MenuPage() {
                                     <div style={{ color: colors.textColor }} className='text-xl'>{cart.items.length} items</div>
                                 </div>
                                 <div 
-                                onClick={() => {console.log("YOUR ORDER IS SUCCESSFULLY PLACED")}}
-                                style={{ backgroundColor: colors.differentColorOrange, fontFamily: 'Montserrat' }} className='rounded-full text-xl px-4 py-2 font-bold'>
+                                onClick={() => {
+                                    alert(`YOUR ORDER IS SUCCESSFULLY PLACED FROM OUTLET ${outletName}`);
+                                    console.log("YOUR ORDER IS SUCCESSFULLY PLACED")
+                                    const updatedCarts = { ...cart };
+                                    delete updatedCarts[outletName];
+                                    localStorage.setItem('carts', JSON.stringify(updatedCarts));
+                                    window.location.reload();
+                                }}
+                                style={{ backgroundColor: colors.differentColorOrange, fontFamily: 'Montserrat' }} className=' cursor-pointer rounded-full text-xl px-4 py-2 font-bold'>
                                     Checkout
                                 </div>
                             </div>
@@ -492,8 +499,16 @@ export default function MenuPage() {
                             {cart.items.length} items added
                         </div>
                         <div
-                            onClick={() => {console.log("YOUR ORDER IS SUCCESSFULLY PLACED")}}
-                            className='flex gap-1 items-center' style={{ cursor: 'pointer' }}>
+                            onClick={() => {
+                                alert(`YOUR ORDER IS SUCCESSFULLY PLACED FROM OUTLET ${outletName}`);
+                                console.log("YOUR ORDER IS SUCCESSFULLY PLACED")
+                            
+                                const updatedCarts = { ...cart };
+        delete updatedCarts[outletName];
+        localStorage.setItem('carts', JSON.stringify(updatedCarts));
+        window.location.reload();
+                            }}
+                            className='flex gap-1 items-center cursor-pointer' style={{ cursor: 'pointer' }}>
                             Checkout
                             <IoMdArrowDroprightCircle style={{ marginBottom: 4 }} />
                         </div>

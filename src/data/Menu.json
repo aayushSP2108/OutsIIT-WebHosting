@@ -26,6 +26,7 @@
             },
             "image3": "https://news.iitgn.ac.in/wp/wp-content/uploads/2020/05/amul-1-999x640.jpg",
             "image2": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/amul.JPG",
+            "image4": "https://news.iitgn.ac.in/wp/wp-content/uploads/2020/05/amul-1-999x640.jpg",
             "image": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/amul.JPG",
             "details": "The Amul Store at the campus is a one-stop shop for a variety of dairy products including milk, cheese, ice cream, and other popular Amul products.",
             "openingTime": "10:00",
@@ -391,6 +392,9 @@
             "location": "Emiet Hostel",
             "details": "Mahavir Healthy Food offers nutritious and wholesome meals. They are open late into the night for those looking for healthy food options.",
             "image": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/mahavir2.jpg",
+            "image2": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/mahavir2.jpg",
+            "image3": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/mahavir2.jpg",
+            "image4": "https://www.iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/mahavir2.jpg",
             "openingTime": "16:00",
             "closingTime": "03:00",
             "leaveDay": "None",
@@ -413,8 +417,8 @@
                 "$oid": "66eff6f5345291a69f80a179"
             },
             "id": "1721926168238",
-            "name": "VS Fastfood",
-            "shopkeeperName": "VS Fastfood Owner",
+            "name": "Dawat",
+            "shopkeeperName": "Dawat Owner",
             "upiId": "upi@123",
             "featured": false,
             "type": "NonVeg",
@@ -422,9 +426,9 @@
                 "None"
             ],
             "menuType": [
-                "Snack",
+                "Non Veg",
                 "Meal",
-                "Salad"
+                "Rolls"
             ],
             "location": "Hiqom Hostel",
             "rating": {
@@ -434,11 +438,14 @@
                 "$numberInt": "7"
             },
             "image": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/dawat.jpg",
-            "details": "VS Fastfood serves quick and tasty non-vegetarian fast food items. Open from early morning to late night, it's a favorite spot for late-night cravings.",
+            "image2": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/dawat.jpg",
+            "image3": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/dawat.jpg",
+            "image4": "https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/dawat.jpg",
+            "details": "Dawat food serves quick and tasty non-vegetarian food items. Open from late night to mid night, it's a favorite spot for late-night cravings.",
             "openingTime": "20:00",
             "closingTime": "04:00",
             "leaveDay": "None",
-            "userId": "VSFastfood.iitgn@gmail.com",
+            "userId": "Dawat.iitgn@gmail.com",
             "menu": [
                 {
                     "title": "Beverages",

@@ -6,6 +6,7 @@ import { HashRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import MenuPage from './pages/MenuPage';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/menu/:outletName" element={<MenuPage />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </HashRouter>
