@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaShoppingBasket, FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import colors from '../styles/colors';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,17 +10,17 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-gray-800 shadow fixed top-0 left-0 w-full z-10">
+        <nav style={{backgroundColor: colors.subBackgroundColor}} className="shadow fixed top-0 left-0 w-full z-10">
             <div className="container mx-auto flex justify-between items-center p-4">
                 <div className="text-lg font-bold">
-                    <a href="#home" className="text-white">Logo</a>
+                    <a href="#" className="text-white">Logo</a>
                 </div>
 
                 <div className="hidden md:flex space-x-4">
-                    <a href="#home" className="text-gray-300 hover:text-white">Home</a>
-                    <a href="#productions" className="text-gray-300 hover:text-white">Productions</a>
+                    <a href="#" className="text-gray-300 hover:text-white">Home</a>
+                    <a href="#" className="text-gray-300 hover:text-white">Productions</a>
                     <a href="#about" className="text-gray-300 hover:text-white">About</a>
-                    <a href="#favourites" className="text-gray-300 hover:text-white">Favourites</a>
+                    <a href="#" className="text-gray-300 hover:text-white">Favourites</a>
                 </div>
 
                 <div className="flex items-center space-x-2">
@@ -40,8 +41,8 @@ export default function Navbar() {
 
             {isOpen && (
                 <div className="md:hidden bg-gray-700 p-4">
-                    <a href="#home" className="block text-gray-300 hover:text-white py-2">Home</a>
-                    <a href="#productions" className="block text-gray-300 hover:text-white py-2">Productions</a>
+                    <a href="#" className="block text-gray-300 hover:text-white py-2">Home</a>
+                    <a href="#" className="block text-gray-300 hover:text-white py-2">Productions</a>
                     <a href="#about" className="block text-gray-300 hover:text-white py-2">About</a>
                     <a href="#favourites" className="block text-gray-300 hover:text-white py-2">Favourites</a>
                 </div>

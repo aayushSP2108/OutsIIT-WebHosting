@@ -7,9 +7,13 @@ import ImageGallery from '../components/ImageGallery';
 import FoodIcon from '../components/FoodIcon';
 import Rating from '../components/Rating';
 import { FaCaretRight, FaMinus, FaPlus, FaRegQuestionCircle } from 'react-icons/fa';
+import { IoMdArrowDroprightCircle } from "react-icons/io";
 
 import TruncatedTextComponent from '../components/TruncatedTextComponent';
 import FooterMenu from '../components/FooterMenu';
+import { OutletStatus } from '../components/OutletStatus';
+import { BsFillStarFill } from 'react-icons/bs';
+import colors from '../styles/colors';
 
 export default function MenuPage() {
     const { outletName } = useParams();
@@ -138,15 +142,88 @@ export default function MenuPage() {
     }
 
     return (
-        <div className="bg-gray-900 text-gray-200 w-screen">
+        <div style={{ backgroundColor: colors.backgroundColor, fontFamily: 'Zain', fontSize: 24 }} className=" text-gray-200 w-screen">
             <Navbar />
-            <div className="flex pt-16">
+            <div className='mt-16 p-4'>
+                <div className='md:h-96 w-full flex gap-4'>
+                    <div className='w-full md:w-[60%] h-64 md:h-full rounded shadow overflow-hidden'>
+                        <img src={outlet.image} alt={outlet.name} className='w-full h-full object-cover' />
+                    </div>
+                    <div className='hidden md:w-[20%] md:flex md:flex-col md:gap-4 w-[20%] h-full flex-col gap-4'>
+                        <div className='h-[50%] rounded shadow overflow-hidden'>
+                            <img src={outlet.image4} alt={outlet.name} className='w-full h-full object-cover' />
+                        </div>
+                        <div className='h-[50%] rounded shadow overflow-hidden'>
+                            <img src={outlet.image3} alt={outlet.name} className='w-full h-full object-cover' />
+                        </div>
+                    </div>
+                    <div className='hidden md:w-[20%] md:flex md:h-full w-[20%] h-full rounded shadow overflow-hidden'>
+                        <img src={outlet.image2} alt={outlet.name} className='w-full h-full object-cover' />
+                    </div>
+                </div>
+                <div className='py-3 flex flex-col md:flex-row justify-between items-center'>
+                    <div className='text-center md:text-left mb-4'>
+                        <h1 style={{ color: colors.differentColorOrange, marginBottom: 0 }} className="text-5xl md:text-7xl font-black">{outlet.name}</h1>
+                        <p style={{ color: colors.textColor }} className="text-xl md:text-3xl text-gray-600">{outlet.menuType.join(', ')}</p>
+                        <p style={{ color: colors.differentColorPurple }} className="text-lg md:text-2xl font-semibold text-gray-700 ">{outlet.location}</p>
 
-                <div className='hidden md:block fixed top-16 left-0 p-4 w-[15%] h-[calc(100vh-4rem)] overflow-y-auto'>
+                        <div className=' md:hidden flex items-center justify-center gap-2'>
+                            <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.differentColorGreen, color: colors.mainBackgroundColor }} className='flex items-center gap-1 rounded-lg px-2 text-white'>
+                                <p className="text-lg md:text-xl font-semibold">{outlet.rating.$numberInt}</p>
+                                <BsFillStarFill size={16} />
+                            </div>
+                            <div className=' flex gap-1 border-b-2 border-dotted' style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }}>
+                                <p className="text-xs md:text-sm font-bold">{outlet.ratingcount.$numberInt}</p>
+                                <p className="text-xs md:text-sm font-bold">Store ratings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='  flex gap-3 items-start justify-center md:justify-start'>
+                        <div className='hidden md:flex items-center gap-2'>
+                            <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.differentColorGreen, color: colors.mainBackgroundColor }} className='flex items-center gap-1 rounded-lg p-1 px-2 text-white'>
+                                <p className="text-lg md:text-xl font-semibold">{outlet.rating.$numberInt}</p>
+                                <BsFillStarFill size={16} />
+                            </div>
+                            <div style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }}>
+                                <p className="text-xs md:text-sm font-bold">{outlet.ratingcount.$numberInt}</p>
+                                <p className="text-xs md:text-sm font-bold">Store ratings</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div className=' hidden md:flex gap-3 items-center text-center md:text-left'>
+                    <OutletStatus outlet={outlet} />
+                    <h1 style={{ color: colors.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Serving hours: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.openingTime} – {outlet.closingTime}</span>
+                    </h1>
+                    <h1 style={{ color: colors.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Offdays: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
+                    </h1>
+                </div>
+
+                <div className=' md:hidden bg-gradient-to-b from-red-600 to-transparent rounded-lg h-20 flex flex-col justify-center items-center text-center md:text-left'>
+                    <h1 style={{ color: colors.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Serving hours: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.openingTime} – {outlet.closingTime}</span>
+                    </h1>
+                    <h1 style={{ color: colors.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Offdays: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
+                    </h1>
+                </div>
+
+
+            </div>
+
+
+            <div className="flex ">
+
+                <div style={{ backgroundColor: colors.componentColor }} className='hidden sticky md:block top-16 left-0 p-4 w-[15%] h-[calc(100vh-4rem)] overflow-y-auto'>
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
-                                <h2 className={`text-2xl font-semibold mb-2 ${selectedCategory === index ? 'text-blue-500' : 'text-gray-200'}`}>
+                                <h2
+                                    style={{ color: selectedCategory === index ? colors.differentColorOrange : colors.textColor }}
+                                    className={`text-3xl font-semibold mb-2 uppercase `}>
                                     {category.title}
                                 </h2>
                             </div>
@@ -156,11 +233,11 @@ export default function MenuPage() {
                     )}
                 </div>
 
-                <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-800 px-4 py-2 overflow-x-auto flex space-x-4 z-10">
+                <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-800 px-4 py-3 overflow-x-auto flex space-x-4 z-10">
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
-                                <h2 className={`text-lg font-semibold ${selectedCategory === index ? 'text-blue-500' : 'text-gray-200'}`}>
+                                <h2 style={{ color: selectedCategory === index ? colors.differentColorOrange : colors.textColor }} className={`text-2xl font-semibold `}>
                                     {category.title}
                                 </h2>
                             </div>
@@ -171,18 +248,19 @@ export default function MenuPage() {
                 </div>
 
 
-                <div className='flex-1 ml-0 md:ml-[15%] p-4'>
-                    <h1 className="text-3xl mb-4">{outlet.name}</h1>
-                    <div className='flex gap-8 mb-4'>
+                <div className='flex-1 ml-0'>
+                    {/* <h1 className="text-3xl mb-4">{outlet.name}</h1> */}
+                    {/* <div className='flex gap-8 mb-4'>
                         <h1>Recommended</h1>
                         <h1>Popular</h1>
                         <h1>Veg</h1>
-                    </div>
+                    </div> */}
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} className="mb-6" ref={el => categoryRefs.current[index] = el}>
-                                <h2 className="text-2xl font-semibold mb-2">{category.title}</h2>
-                                <ul className='hidden md:flex flex-wrap w-full justify-between'>
+
+                                <h2 className="text-3xl font-semibold mb-2 p-3">{category.title}</h2>
+                                <ul className=' p-4 hidden md:flex flex-wrap w-full justify-between'>
                                     {category.items.map((item) => {
                                         const cartItem = cart.items.find(cartItem => cartItem.id === item.id);
                                         const quantity = cartItem ? cartItem.quantity : 0;
@@ -205,20 +283,26 @@ export default function MenuPage() {
                                                     <IoHeart className={`p-2 rounded-full bg-slate-100 bg-opacity-80`} size={35} style={{ color: likedItems.has(item.id) ? 'red' : 'black' }} />
                                                 </span>
 
-                                                <div className='pt-2 pb-4'>
-                                                    <span className="font-bold">{item.item}</span>
-                                                    <div className='flex justify-between'>
-                                                        <span className="font-bold">${item.price}</span>
+                                                <div className='pt-2 pb-4 flex justify-between items-center' >
+                                                    <div>
+                                                        <span className="font-bold">{item.item}</span>
+                                                        <div style={{ marginTop: -8 }} className='flex justify-between'>
+                                                            <span style={{ fontFamily: 'Montserrat' }} className="font-bold text-base">₹{item.price}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.componentColor, borderColor: colors.secComponentColor }} className='relative w-[70px] h-8 rounded border-2 flex items-center justify-center text-base'>
                                                         {quantity > 0 ? (
-                                                            <div className='flex items-center'>
-                                                                <button onClick={() => removeFromCart(item.id)} className='bg-red-500 text-white rounded px-2 py-1'>-</button>
-                                                                <span className='mx-2'>{quantity}</span>
-                                                                <button onClick={() => addToCart(item)} className='bg-green-500 text-white rounded px-2 py-1'>+</button>
+                                                            <div className='flex items-center w-full justify-between'>
+                                                                <button onClick={() => removeFromCart(item.id)} className='text-white ml-1'><FaMinus size={12} /></button>
+                                                                <span >{quantity}</span>
+                                                                <button onClick={() => addToCart(item)} className='text-white mr-1'><FaPlus size={12} /></button>
                                                             </div>
                                                         ) : (
-                                                            <button onClick={() => addToCart(item)} className='bg-green-500 text-white rounded px-2 py-1'>Add</button>
+                                                            <button onClick={() => addToCart(item)} className='uppercase'>Add</button>
                                                         )}
                                                     </div>
+
+
                                                 </div>
                                             </li>
                                         );
@@ -230,38 +314,59 @@ export default function MenuPage() {
                                     const quantity = cartItem ? cartItem.quantity : 0;
 
                                     return (
-                                        <li key={item.id} className='flex md:hidden  mb-16 relative p-2'>
-                                            <div className='w-[60%]'>
-                                                <div>
-                                                    <FoodIcon type={item.type} size={12} padding={3} />
+                                        <li key={item.id} className='flex flex-col md:hidden mb-16 relative p-2'>
+                                            <div className='flex justify-between items-start'>
+                                                <div className='w-[60%] p-2'>
+                                                    <div className='flex items-center mb-2'>
+                                                        <FoodIcon type={item.type} size={12} padding={3} />
+                                                    </div>
+                                                    <div style={{ color: colors.differentColorOrange, marginBottom: -10 }} className=' text-2xl font-bold'>{item.item}</div>
+                                                    <div style={{ fontFamily: 'Montserrat' }} className='text-base font-bold mb-1'>₹{item.price}</div>
+                                                    <div className='flex gap-2 my-2 '>
+                                                        <Rating rating={item.rating.$numberInt} backGround={colors.componentColor} />
+                                                        <div style={{ color: colors.mainTextColor }} className='text-lg '>{item.ratingcount.$numberInt} ratings</div>
+                                                    </div>
+                                                    <div
+                                                        style={{
+                                                            color: colors.textColor,
+                                                            fontFamily: 'Montserrat',
+                                                            overflow: 'hidden',
+                                                            display: '-webkit-box',
+                                                            WebkitBoxOrient: 'vertical',
+                                                            WebkitLineClamp: 2,
+                                                            textOverflow: 'ellipsis',
+                                                        }}
+                                                        className='text-sm '
+                                                    >
+                                                        {item.description}
+                                                    </div>
                                                 </div>
-                                                <div>{item.item}</div>
-                                                <div>{item.price}</div>
-                                                <div className='flex gap-2'>
-                                                    <Rating rating={item.rating.$numberInt} />
-                                                    <div> {item.ratingcount.$numberInt} ratings</div>
+                                                <div className="relative w-[40%]">
+                                                    <img src={item.image} alt={item.item} className="h-40 w-full object-cover rounded-2xl" />
+                                                    {quantity > 0 ? (
+                                                        <div style={{ backgroundColor: colors.componentColor, color: colors.textColor }} className='border-[1px] border-l-indigo-50 absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10  rounded-lg'>
+                                                            <button onClick={() => removeFromCart(item.id)} className='absolute left-3 rounded'>
+                                                                <FaMinus size={15} />
+                                                            </button>
+                                                            <span style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className=' font-bold text-lg'>{quantity}</span>
+                                                            <button onClick={() => addToCart(item)} className='absolute right-3 rounded'>
+                                                                <FaPlus size={15} />
+                                                            </button>
+                                                        </div>
+                                                    ) : (
+                                                        <div style={{ backgroundColor: colors.componentColor, color: colors.textColor }} className='border-[1px] absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10 bg-slate-600 rounded-lg'>
+                                                            <button style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} onClick={() => addToCart(item)} className=' uppercase text-white font-bold text-lg'>
+                                                                Add
+                                                            </button>
+                                                            <div className=' absolute top-0 right-2'>+</div>
+                                                        </div>
+                                                    )}
                                                 </div>
-                                                <div>{item.description}</div>
                                             </div>
-                                            <img src={item.image} alt={item.item} className="h-40 w-[40%] object-cover rounded-2xl" />
-
-                                            {quantity > 0 ? (
-                                                <div className=' border-2 border-l-indigo-50 flex items-center justify-evenly absolute right-[9%] -bottom-4 w-28 h-10 bg-slate-600 rounded-lg'>
-                                                    {/* <div className='flex items-center'> */}
-                                                    <button onClick={() => removeFromCart(item.id)} className=' text-white rounded'><FaMinus /></button>
-                                                    <span className='mx-2'>{quantity}</span>
-                                                    <button onClick={() => addToCart(item)} className=' text-white rounded '><FaPlus /></button>
-                                                    {/* </div> */}
-                                                </div>
-                                            ) : (
-                                                <div className='border-2 border-l-indigo-50 absolute flex items-center justify-center right-[9%] -bottom-4 w-28 h-10 bg-slate-600 rounded-lg'>
-                                                    <button onClick={() => addToCart(item)}>Add</button>
-                                                </div>
-                                            )}
-
                                         </li>
                                     );
                                 })}
+
 
 
 
@@ -274,23 +379,23 @@ export default function MenuPage() {
                 </div>
 
 
-                <div className='p-8 w-[30%] shadow-md rounded-lg hidden md:block'>
+                <div style={{ backgroundColor: colors.componentColor }} className='p-8 w-[30%] shadow-md hidden md:block'>
                     <ImageGallery />
 
-                    <div className='flex justify-between items-center mt-6'>
-                        <div className='text-lg font-semibold '>Recommended Add-ons</div>
-                        <IoHeart />
+                    <div style={{ color: colors.mainTextColor }} className='flex justify-between items-center mt-6'>
+                        <div className='text-2xl font-semibold -mb-1'>Recommended Add-ons</div>
+                        {/* <IoHeart /> */}
                     </div>
-                    <div className='pt-2 text-sm text-gray-300'>
+                    <div style={{ color: colors.textColor }} className='pt-2 text-lg '>
                         Above are some recommended add-ons that pair well with your selections.
                     </div>
 
                     <div className='flex justify-between items-center mt-6'>
                         <div>
-                            <div className='text-xl font-bold '>${getCartTotal().toFixed(2)}</div>
-                            <div className='text-sm text-gray-300'>{cart.items.length} items</div>
+                            <div style={{ color: colors.mainTextColor }} className='text-3xl font-bold -mb-2'>₹{getCartTotal().toFixed(2)}</div>
+                            <div style={{ color: colors.textColor }} className='text-xl '>{cart.items.length} items</div>
                         </div>
-                        <div className='bg-orange-600 text-white h-full rounded-full text-xl px-4 py-2 font-semibold hover:bg-orange-500 transition duration-200'>
+                        <div style={{ backgroundColor: colors.differentColorOrange, fontFamily: 'Montserrat' }} className=' rounded-full text-xl px-4 py-2 font-bold'>
                             Checkout
                         </div>
                     </div>
@@ -301,28 +406,28 @@ export default function MenuPage() {
                     ) : (
                         <ul className='mt-4'>
                             {cart.items.map((item) => (
-                                <li key={item.id} className='flex justify-between  mb-2'>
+                                <li key={item.id} className='flex justify-between mb-4'>
                                     <div className='flex '>
-                                        <img src={item.image} alt={item.item} className=" border-2 h-20 w-20 mr-4 object-cover rounded-lg" />
+                                        <img src={item.image} alt={item.item} style={{ borderColor: colors.secComponentColor }} className=" border-2 h-20 w-20 mr-4 object-cover rounded-lg" />
                                         <div className=' flex flex-col justify-between'>
                                             <div>
-                                                <div className='text-lg font-semibold text-gray-100'>
+                                                <div style={{ color: colors.mainTextColor, marginBottom: -8 }} className='text-xl font-bold'>
                                                     <TruncatedTextComponent text={item.item} maxLength={11} />
-                                                    {/* {item.item.length} */}
                                                 </div>
-                                                <div className='text-sm text-gray-300'>quantity: {item.quantity} * ${item.price}</div>
+                                                <div style={{ color: colors.textColor }} className='text-lg font-light'>Quantity: {item.quantity} * Rs.{item.price}</div>
                                             </div>
-                                            <div className='text-lg font-bold text-gray-100'>${(item.quantity * item.price).toFixed(2)}</div>
+                                            <div style={{ fontFamily: 'Montserrat' }} className='text-base font-bold '>₹{(item.quantity * item.price).toFixed(2)}</div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col items-end justify-between'>
-                                        <div className='text-sm text-green-500 font-medium'>In Stock</div>
-                                            <div className=' border-2 p-2 border-l-indigo-50 flex items-center justify-evenly  h-10 bg-slate-600 rounded-lg'>
-                                                <button onClick={() => removeFromCart(item.id)} className=' text-white rounded'><FaMinus /></button>
-                                                <span className='mx-3'>{item.quantity}</span>
-                                                <button onClick={() => addToCart(item)} className=' text-white rounded '><FaPlus /></button>
+                                    <div className='flex flex-col items-end justify-between relative'>
+                                        <div style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='text-base font-bold uppercase'>In Stock</div>
+                                        <div style={{ borderColor: colors.secComponentColor, color: colors.textColor }} className='border-2 px-2 py-1 flex items-center justify-center rounded-lg w-20'>
+                                            <button onClick={() => removeFromCart(item.id)} className='absolute left-2 rounded'><FaMinus size={13} /></button>
+                                            <span style={{ color: colors.differentColorGreen, marginBottom: -2 }} className='mx-3 text-lg'>{item.quantity}</span>
+                                            <button onClick={() => addToCart(item)} className='absolute right-2 rounded'><FaPlus size={13} /></button>
                                         </div>
                                     </div>
+
                                 </li>
 
                             ))}
@@ -333,12 +438,13 @@ export default function MenuPage() {
 
                 </div>
                 {cart.items.length > 0 &&
-                    <div className="md:hidden fixed bottom-10 left-0 w-full bg-[#ff3c00] py-2 px-4 overflow-x-auto flex space-x-4 z-10 justify-between">
+                    <div style={{ backgroundColor: colors.differentColorOrange, color: colors.backgroundColor }} className="md:hidden fixed bottom-14 left-0 w-full py-2 px-4 overflow-x-auto flex space-x-4 z-10 justify-between text-2xl font-semibold">
                         <div>
                             {cart.items.length} items added
                         </div>
-                        <div>
+                        <div className=' flex gap-1 items-center'>
                             Checkout
+                            <IoMdArrowDroprightCircle style={{ marginBottom: 4 }} />
                         </div>
                     </div>
                 }

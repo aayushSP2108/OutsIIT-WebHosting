@@ -10,13 +10,15 @@ const Rating = ({ rating, border, gaps, backGround, size }) => {
         <div 
             style={{ 
                 borderWidth: border, 
-                padding: '2px', 
+                padding: '2px',
+                paddingLeft: '6px', 
+                paddingRight: '6px', 
                 gap: gaps || '1px', 
                 backgroundColor: backGround || '#f0f0f0',
                 display: 'flex',
                 alignItems: 'center',
             }} 
-            className='rating-container rounded-md border-2 border-[#F4BE1B] p-1'
+            className='rating-container rounded-md border-[1px] border-[#F4BE1B] p-1'
         >
             {[...Array(fullStars)].map((_, index) => (
                 <BsFillStarFill key={`full-${index}`} size={size || 14} color='#F4BE1B' />
