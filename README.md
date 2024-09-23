@@ -170,6 +170,8 @@ Feel free to explore the project!
 
 ## This guide will help you set up the project, run it on your local machine, and build the app for production.
 
+### Prerequisites
+
 Before you begin, ensure you have the following installed:
 
 - Node.js
