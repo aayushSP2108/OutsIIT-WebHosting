@@ -200,8 +200,8 @@ yarn install
 
 ### 3. Start the Development Server
 
-Start the development server using Expo CLI:
+Start the development server:
 
 ```bash
-npx expo start
+npm run dev
 ```
