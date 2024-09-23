@@ -1,5 +1,33 @@
 # Campus Outlet Food Ordering Website
 
+This project serves as a solution for two tasks assigned as part of the **Institute Building Projects (IBP)**:
+
+1. **Website Manager**  
+2. **Online Food Ordering Platform**
+
+The website is built using **React, Tailwind CSS, HTML, CSS, and JavaScript** and fulfills the requirements for both tasks outlined below.
+
+### Task List for **Website Manager Project**
+
+### 1. Website Creation:
+- Developed a basic website with multiple pages (Home, About, Contact, Blog).
+- The website includes engaging text, relevant images, and multimedia content.
+
+### 2. Page Development:
+- **Home**: Introduction to the website, showcasing its purpose.
+- **About**: Brief description of the organization.
+- **Favourites**: Section for under development.
+- **Contact Us**: Contact details of the owner.
+
+### Task List for **Food Ordering Application**
+This project also serves as an **Online Food Ordering Platform** for outlets at IITGn.
+
+### Features Implemented:
+1. **Logos and Operational Times**: The homepage displays photos of all campus outlets, along with their operational timings/status.
+2. **Menu and Price Display**: When an outlet is selected, its menu and corresponding prices are displayed for the user on new page.
+3. **Cart Management**: Users can select items from the menu, and the total cost of selected items is dynamically updated in the cart. and also stored in local storage
+4. **Order Placement**: Clicking on the "Checkout" button prints "YOUR ORDER IS SUCCESSFULLY PLACED" to the console.
+
 ## Overview
 This project is a web-based platform designed to make ordering food from various campus outlets easier. The website provides a simple and user-friendly interface for students, faculty, and visitors to explore available outlets, check menus, place orders, and manage carts efficiently. The design is inclusive and ensures accessibility, adhering to government guidelines on web accessibility.
 
