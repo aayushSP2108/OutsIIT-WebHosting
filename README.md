@@ -163,3 +163,45 @@ This website aims to make the campus dining experience seamless, accessible, and
 
 Feel free to explore the project!
 
+
+
+
+
+
+## This guide will help you set up the project, run it on your local machine, and build the app for production.
+
+Before you begin, ensure you have the following installed:
+
+- Node.js
+- npm or yarn
+
+## Getting Started
+
+### 1. Clone the Repository
+
+Clone this repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2. Install Dependencies
+
+Install the necessary dependencies using npm or yarn:
+
+```bash
+# Using npm
+npm install
+
+# Using yarn
+yarn install
+```
+
+### 3. Start the Development Server
+
+Start the development server using Expo CLI:
+
+```bash
+npx expo start
+```
