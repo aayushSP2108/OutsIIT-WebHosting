@@ -3,14 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import menuData from '../data/Menu.json';
 import { BsFillStarFill } from "react-icons/bs";
-import colors from '../styles/colors';
 import TruncatedTextComponent from '../components/TruncatedTextComponent';
 import Banner from '../components/Banner';
-import { getStatus } from '../components/OutletStatus';
+// import { getStatus } from '../components/OutletStatus';
 import Outlet from '../components/Outlet';
 import Footer from '../components/Footer';
+import { useTheme } from '../context/ThemeContext';
 
 const Home = () => {
+  const { theme, toggleTheme } = useTheme();
+
   const [outlets, setOutlets] = useState([]);
   const navigate = useNavigate();
 
@@ -42,14 +44,14 @@ const Home = () => {
 
 
   return (
-    <div style={{ backgroundColor: colors.backgroundColor }} className=" text-gray-200 w-screen min-h-screen flex flex-col">
+    <div style={{ backgroundColor: theme.backgroundColor }} className=" text-gray-200 w-screen min-h-screen flex flex-col">
       <Navbar />
 
       <div className='mt-16 ' />
 
       <Banner />
 
-      <h1 style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }} className="text-lg md:text-xl lg:text-3xl font-semibold tracking-widest my-4 text-center uppercase">
+      <h1 style={{ fontFamily: 'Montserrat', color: theme.mainTextColor }} className="text-lg md:text-xl lg:text-3xl font-semibold tracking-widest my-4 text-center uppercase">
         What's on your Heart?
       </h1>
       <div className="flex overflow-x-auto space-x-4">
@@ -59,10 +61,10 @@ const Home = () => {
             className="flex-shrink-0 w-20 md:w-24 lg:w-32 flex flex-col items-center cursor-pointer"
             onClick={() => handleOutletClick(item.outletName)} // Attach the click handler
           >
-            <div style={{ borderColor: colors.secComponentColor }} className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 shadow-lg">
+            <div style={{ borderColor: theme.secComponentColor }} className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 shadow-lg">
               <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
             </div>
-            <p style={{ color: colors.textColor }} className="mt-2 text-center text-lg md:text-xl lg:text-2xl truncate">
+            <p style={{ color: theme.textColor }} className="mt-2 text-center text-lg md:text-xl lg:text-2xl truncate">
               <TruncatedTextComponent text={item.name} maxLength={11} />
             </p>
           </div>
@@ -71,7 +73,7 @@ const Home = () => {
 
 
 
-      <h1 style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }} className="text-lg md:text-xl lg:text-3xl font-semibold tracking-widest my-4 text-center uppercase">All Outlets</h1>
+      <h1 style={{ fontFamily: 'Montserrat', color: theme.mainTextColor }} className="text-lg md:text-xl lg:text-3xl font-semibold tracking-widest my-4 text-center uppercase">All Outlets</h1>
       <div className=" px-4 flex-grow">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {outlets.map((outlet) => (
@@ -82,7 +84,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

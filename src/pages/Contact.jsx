@@ -3,32 +3,33 @@ import { MdCall } from "react-icons/md";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { HiChatBubbleBottomCenter } from "react-icons/hi2";
 import Navbar from "../components/Navbar";
-import colors from "../styles/colors";
 import Footer from "../components/Footer";
+import { useTheme } from "../context/ThemeContext";
 
 const Contact = () => {
+    const { theme, toggleTheme } = useTheme();
     return (
-        <div id="contact-us" style={{backgroundColor: colors.backgroundColor}} className="">
+        <div id="contact-us" style={{backgroundColor: theme.backgroundColor}} className="">
             <Navbar />
-            <h2 style={{color: colors.differentColorOrange}} className="pt-24 px-3 md:px-10 text-6xl font-extrabold">Contact Us</h2>
+            <h2 style={{color: theme.differentColorOrange}} className="pt-24 px-3 md:px-10 text-6xl font-extrabold">Contact Us</h2>
             
             <div className="pt-3 px-3 md:pt-10 md:px-10 flex flex-col md:flex-row justify-between items-center">
                 <div className="flex flex-col gap-6 md:w-1/2">
-                    <p style={{color: colors.mainTextColor}} className="text-4xl font-medium ">
+                    <p style={{color: theme.mainTextColor}} className="text-4xl font-medium ">
                         We're here to assist you!
                     </p>
-                    <p style={{color: colors.textColor}} className="text-2xl">
+                    <p style={{color: theme.textColor}} className="text-2xl">
                         Our team is dedicated to providing you with exceptional service. A great living environment can enhance your quality of life.
                     </p>
                     <div className="flex flex-col gap-6">
                     <div className="flex flex-wrap justify-between sm:justify-start md:gap-8">
-                            <ContactCard icon={<MdCall size={30} />} title="Call" number="021 123 145 14" buttonText="Call now" />
-                            <ContactCard icon={<BsFillChatDotsFill size={30} />} title="Chat" number="021 123 145 14" buttonText="Chat now" />
+                            <ContactCard theme={theme} icon={<MdCall size={30} />} title="Call" number="021 123 145 14" buttonText="Call now" />
+                            <ContactCard theme={theme} icon={<BsFillChatDotsFill size={30} />} title="Chat" number="021 123 145 14" buttonText="Chat now" />
                         </div>
 
                         <div className="flex flex-wrap justify-between sm:justify-start md:gap-8">
-                            <ContactCard icon={<BsFillChatDotsFill size={30} />} title="Video Call" number="021 123 145 14" buttonText="Video Call now" />
-                            <ContactCard icon={<HiChatBubbleBottomCenter size={30} />} title="Message" number="021 123 145 14" buttonText="Message now" />
+                            <ContactCard theme={theme} icon={<BsFillChatDotsFill size={30} />} title="Video Call" number="021 123 145 14" buttonText="Video Call now" />
+                            <ContactCard theme={theme} icon={<HiChatBubbleBottomCenter size={30} />} title="Message" number="021 123 145 14" buttonText="Message now" />
                         </div>
                     </div>
                 </div>
@@ -45,18 +46,18 @@ const Contact = () => {
     );
 };
 
-const ContactCard = ({ icon, title, number, buttonText }) => (
-    <div style={{backgroundColor: colors.shadowColor}} className="flex flex-col items-center border border-gray-300 rounded-lg p-3 transition-transform hover:shadow-lg hover:scale-101 ">
+const ContactCard = ({ icon, title, number, buttonText, theme }) => (
+    <div style={{backgroundColor: theme.shadowColor}} className="flex flex-col items-center border border-gray-300 rounded-lg p-3 transition-transform hover:shadow-lg hover:scale-101 ">
         <div className="flex items-center mb-3">
-            <div style={{color: colors.mainTextColor, backgroundColor: colors.secComponentColor}} className="flex items-center justify-center w-12 h-12 rounded-full">
+            <div style={{color: theme.mainTextColor, backgroundColor: theme.secComponentColor}} className="flex items-center justify-center w-12 h-12 rounded-full">
                 {icon}
             </div>
             <div className="flex flex-col ml-3">
-                <span style={{color: colors.mainTextColor}} className="text-lg md:text-xl font-semibold ">{title}</span>
-                <span style={{color: colors.textColor}} className="text-sm md:text-base">{number}</span>
+                <span style={{color: theme.mainTextColor}} className="text-lg md:text-xl font-semibold ">{title}</span>
+                <span style={{color: theme.textColor}} className="text-sm md:text-base">{number}</span>
             </div>
         </div>
-        <button style={{backgroundColor: colors.differentColorOrange, color: colors.backgroundColor}} className="mt-1 w-full font-semibold py-1 rounded transition-all duration-200">
+        <button style={{backgroundColor: theme.differentColorOrange, color: theme.backgroundColor}} className="mt-1 w-full font-semibold py-1 rounded transition-all duration-200">
             {buttonText}
         </button>
     </div>

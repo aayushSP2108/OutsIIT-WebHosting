@@ -13,10 +13,12 @@ import TruncatedTextComponent from '../components/TruncatedTextComponent';
 import FooterMenu from '../components/FooterMenu';
 import { getStatus } from '../components/OutletStatus';
 import { BsFillStarFill } from 'react-icons/bs';
-import colors from '../styles/colors';
 import Footer from '../components/Footer';
 
+import { useTheme } from '../context/ThemeContext';
+
 export default function MenuPage() {
+    const { theme, toggleTheme } = useTheme();
     const { outletName } = useParams();
 
     const [cart, setCart] = useState(() => {
@@ -145,7 +147,7 @@ export default function MenuPage() {
     const status = getStatus(outlet);
 
     return (
-        <div style={{ backgroundColor: colors.backgroundColor }} className=" text-gray-200 w-screen">
+        <div style={{ backgroundColor: theme.backgroundColor }} className=" text-gray-200 w-screen">
             <Navbar />
             <div className='mt-16 p-4'>
                 <div className='md:h-96 w-full flex gap-4'>
@@ -166,16 +168,16 @@ export default function MenuPage() {
                 </div>
                 <div className='py-3 flex flex-col md:flex-row justify-between items-center'>
                     <div className='text-center md:text-left mb-4'>
-                        <h1 style={{ color: colors.mainTextColor, marginBottom: 0 }} className="text-5xl md:text-7xl font-black">{outlet.name}</h1>
-                        <p style={{ color: colors.textColor }} className="text-xl md:text-3xl text-gray-600">{outlet.menuType.join(', ')}</p>
-                        <p style={{ color: colors.differentColorPurple }} className="text-lg md:text-2xl font-semibold text-gray-700 ">{outlet.location}</p>
+                        <h1 style={{ color: theme.mainTextColor, marginBottom: 0 }} className="text-5xl md:text-7xl font-black">{outlet.name}</h1>
+                        <p style={{ color: theme.textColor }} className="text-xl md:text-3xl text-gray-600">{outlet.menuType.join(', ')}</p>
+                        <p style={{ color: theme.differentColorPurple }} className="text-lg md:text-2xl font-semibold text-gray-700 ">{outlet.location}</p>
 
                         <div className=' md:hidden flex items-center justify-center gap-2'>
-                            <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.differentColorGreen, color: 'white' }} className='flex items-center gap-1 rounded-lg px-2 text-white'>
+                            <div style={{ fontFamily: 'Montserrat', backgroundColor: theme.differentColorGreen, color: 'white' }} className='flex items-center gap-1 rounded-lg px-2 text-white'>
                                 <p className="text-lg md:text-xl font-semibold">{outlet.rating.$numberInt}</p>
                                 <BsFillStarFill size={16} />
                             </div>
-                            <div className=' flex gap-1 border-b-2 border-dotted' style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }}>
+                            <div className=' flex gap-1 border-b-2 border-dotted' style={{ fontFamily: 'Montserrat', color: theme.mainTextColor }}>
                                 <p className="text-xs md:text-sm font-bold">{outlet.ratingcount.$numberInt}</p>
                                 <p className="text-xs md:text-sm font-bold">Store ratings</p>
                             </div>
@@ -183,11 +185,11 @@ export default function MenuPage() {
                     </div>
                     <div className='  flex gap-3 items-start justify-center md:justify-start'>
                         <div className='hidden md:flex items-center gap-2'>
-                            <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.differentColorGreen, color: 'white' }} className='flex items-center gap-1 rounded-lg p-1 px-2 text-white'>
+                            <div style={{ fontFamily: 'Montserrat', backgroundColor: theme.differentColorGreen, color: 'white' }} className='flex items-center gap-1 rounded-lg p-1 px-2 text-white'>
                                 <p className="text-lg md:text-xl font-semibold">{outlet.rating.$numberInt}</p>
                                 <BsFillStarFill size={16} />
                             </div>
-                            <div style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }}>
+                            <div style={{ fontFamily: 'Montserrat', color: theme.mainTextColor }}>
                                 <p className="text-xs md:text-sm font-bold">{outlet.ratingcount.$numberInt}</p>
                                 <p className="text-xs md:text-sm font-bold">Store ratings</p>
                             </div>
@@ -200,11 +202,11 @@ export default function MenuPage() {
                     <p style={{ color: status.color, fontFamily: 'Montserrat' }} className='font-semibold text-3xl uppercase'>
                         {status.text}
                     </p>
-                    <h1 style={{ color: colors.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
-                        Serving hours: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.openingTime} – {outlet.closingTime}</span>
+                    <h1 style={{ color: theme.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Serving hours: <span style={{ color: theme.mainTextColor }} className="font-bold">{outlet.openingTime} – {outlet.closingTime}</span>
                     </h1>
-                    <h1 style={{ color: colors.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
-                        Offdays: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
+                    <h1 style={{ color: theme.textColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Offdays: <span style={{ color: theme.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
                     </h1>
                 </div>
 
@@ -217,11 +219,11 @@ export default function MenuPage() {
                     {/* <p style={{ fontFamily: 'Montserrat' }} className='font-semibold text-3xl mt-3 uppercase'>
                         {status.text}
                     </p> */}
-                    <h1 style={{ color: colors.mainTextColor, marginBottom: -2 }} className="text-lg md:text-xl">
-                        Serving hours: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.openingTime} – {outlet.closingTime}</span>
+                    <h1 style={{ color: theme.mainTextColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Serving hours: <span style={{ color: theme.mainTextColor }} className="font-bold">{outlet.openingTime} – {outlet.closingTime}</span>
                     </h1>
-                    <h1 style={{ color: colors.mainTextColor, marginBottom: -2 }} className="text-lg md:text-xl">
-                        Offdays: <span style={{ color: colors.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
+                    <h1 style={{ color: theme.mainTextColor, marginBottom: -2 }} className="text-lg md:text-xl">
+                        Offdays: <span style={{ color: theme.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
                     </h1>
                 </div>
 
@@ -231,12 +233,12 @@ export default function MenuPage() {
 
             <div className="flex ">
 
-                <div style={{ backgroundColor: colors.componentColor }} className='hidden sticky md:block top-16 left-0 p-4 w-[15%] h-[calc(100vh-4rem)] overflow-y-auto'>
+                <div style={{ backgroundColor: theme.componentColor }} className='hidden sticky md:block top-16 left-0 p-4 w-[15%] h-[calc(100vh-4rem)] overflow-y-auto'>
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
                                 <h2
-                                    style={{ color: selectedCategory === index ? colors.differentColorOrange : colors.textColor }}
+                                    style={{ color: selectedCategory === index ? theme.differentColorOrange : theme.textColor }}
                                     className={`text-3xl font-semibold mb-2 uppercase `}>
                                     {category.title}
                                 </h2>
@@ -251,7 +253,7 @@ export default function MenuPage() {
                     {outlet.menu && outlet.menu.length > 0 ? (
                         outlet.menu.map((category, index) => (
                             <div key={category._id} onClick={() => scrollToCategory(index)} className="cursor-pointer">
-                                <h2 style={{ color: selectedCategory === index ? colors.differentColorOrange : colors.textColor }} className={`text-2xl font-semibold `}>
+                                <h2 style={{ color: selectedCategory === index ? theme.differentColorOrange : theme.textColor }} className={`text-2xl font-semibold `}>
                                     {category.title}
                                 </h2>
                             </div>
@@ -274,7 +276,7 @@ export default function MenuPage() {
                             <div key={category._id} className="mb-6" ref={el => categoryRefs.current[index] = el}>
 
                                 <h2
-                                    style={{ color: colors.mainTextColor }} // backgroundColor: colors.componentColor
+                                    style={{ color: theme.mainTextColor }} // backgroundColor: theme.componentColor
                                     className={`text-3xl font-semibold mb-2 p-3 md:bg-transparent`}
                                 >
                                     {category.title}
@@ -304,21 +306,21 @@ export default function MenuPage() {
 
                                                 <div className='pt-2 pb-4 flex justify-between items-center' >
                                                     <div>
-                                                        <span style={{ color: colors.mainTextColor }} className="font-bold">{item.item}</span>
+                                                        <span style={{ color: theme.mainTextColor }} className="font-bold">{item.item}</span>
                                                         <div style={{ marginTop: -8 }} className='flex justify-between'>
-                                                            <span style={{ fontFamily: 'Montserrat', color: colors.textColor }} className="font-bold text-base">₹{item.price}</span>
+                                                            <span style={{ fontFamily: 'Montserrat', color: theme.textColor }} className="font-bold text-base">₹{item.price}</span>
                                                         </div>
                                                     </div>
                                                     {!status.text.includes("Closed") && (
-                                                        <div style={{ fontFamily: 'Montserrat', backgroundColor: colors.componentColor, borderColor: colors.secComponentColor }} className='relative w-[70px] h-8 rounded border-2 flex items-center justify-center text-base'>
+                                                        <div style={{ fontFamily: 'Montserrat', backgroundColor: theme.componentColor, borderColor: theme.secComponentColor }} className='relative w-[70px] h-8 rounded border-2 flex items-center justify-center text-base'>
                                                             {quantity > 0 ? (
                                                                 <div className='flex items-center justify-between'>
-                                                                    <button onClick={() => removeFromCart(item.id)} style={{ color: colors.textColor }} className=' w-[50%] h-full absolute left-1 '><FaMinus size={12} /></button>
-                                                                    <span style={{ color: colors.mainTextColor }}>{quantity}</span>
-                                                                    <button onClick={() => addToCart(item)} style={{ color: colors.textColor }} className=' absolute w-[50%] h-full right-1  flex items-center justify-end'><FaPlus size={12} /></button>
+                                                                    <button onClick={() => removeFromCart(item.id)} style={{ color: theme.textColor }} className=' w-[50%] h-full absolute left-1 '><FaMinus size={12} /></button>
+                                                                    <span style={{ color: theme.mainTextColor }}>{quantity}</span>
+                                                                    <button onClick={() => addToCart(item)} style={{ color: theme.textColor }} className=' absolute w-[50%] h-full right-1  flex items-center justify-end'><FaPlus size={12} /></button>
                                                                 </div>
                                                             ) : (
-                                                                <button onClick={() => addToCart(item)} style={{ color: colors.mainTextColor }} className='uppercase w-full h-full'>Add</button>
+                                                                <button onClick={() => addToCart(item)} style={{ color: theme.mainTextColor }} className='uppercase w-full h-full'>Add</button>
                                                             )}
                                                         </div>
                                                     )}
@@ -343,15 +345,15 @@ export default function MenuPage() {
                                                     <div className='flex items-center mb-2'>
                                                         <FoodIcon type={item.type} size={12} padding={3} />
                                                     </div>
-                                                    <div style={{ color: colors.mainTextColor, marginBottom: -10 }} className=' text-2xl font-bold'>{item.item}</div>
-                                                    <div style={{ color: colors.textColor, fontFamily: 'Montserrat' }} className='text-base font-bold mb-1'>₹{item.price}</div>
+                                                    <div style={{ color: theme.mainTextColor, marginBottom: -10 }} className=' text-2xl font-bold'>{item.item}</div>
+                                                    <div style={{ color: theme.textColor, fontFamily: 'Montserrat' }} className='text-base font-bold mb-1'>₹{item.price}</div>
                                                     <div className='flex gap-2 my-2 '>
-                                                        <Rating rating={item.rating.$numberInt} backGround={colors.componentColor} />
-                                                        <div style={{ color: colors.mainTextColor }} className='text-lg '>{item.ratingcount.$numberInt} ratings</div>
+                                                        <Rating rating={item.rating.$numberInt} backGround={theme.componentColor} />
+                                                        <div style={{ color: theme.mainTextColor }} className='text-lg '>{item.ratingcount.$numberInt} ratings</div>
                                                     </div>
                                                     <div
                                                         style={{
-                                                            color: colors.textColor,
+                                                            color: theme.textColor,
                                                             fontFamily: 'Montserrat',
                                                             overflow: 'hidden',
                                                             display: '-webkit-box',
@@ -367,20 +369,20 @@ export default function MenuPage() {
                                                 <div className="relative w-[40%]">
                                                     <img src={item.image} alt={item.item} className="h-40 w-full object-cover rounded-2xl" />
                                                     {!status.text.includes("Closed") && (
-                                                        <div style={{ backgroundColor: colors.componentColor, color: colors.textColor }} className='border-[1px] border-l-indigo-50 absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10 rounded-lg'>
+                                                        <div style={{ backgroundColor: theme.componentColor, color: theme.textColor }} className='border-[1px] border-l-indigo-50 absolute flex items-center justify-center left-1/2 transform -translate-x-1/2 -bottom-4 w-28 h-10 rounded-lg'>
                                                             {quantity > 0 ? (
                                                                 <>
                                                                     <button onClick={() => removeFromCart(item.id)} className='absolute h-full w-[50%] left-0 px-2 rounded'>
                                                                         <FaMinus size={15} />
                                                                     </button>
-                                                                    <span style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='font-bold text-lg'>{quantity}</span>
+                                                                    <span style={{ color: theme.differentColorGreen, fontFamily: 'Montserrat' }} className='font-bold text-lg'>{quantity}</span>
                                                                     <button onClick={() => addToCart(item)} className='absolute h-full w-[50%] flex items-center justify-end right-0 px-2 rounded'>
                                                                         <FaPlus size={15} />
                                                                     </button>
                                                                 </>
                                                             ) : (
                                                                 <div onClick={() => addToCart(item)} className='border-[1px] flex items-center justify-center h-full w-full rounded-lg'>
-                                                                    <button style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='uppercase text-white font-bold text-lg'>
+                                                                    <button style={{ color: theme.differentColorGreen, fontFamily: 'Montserrat' }} className='uppercase text-white font-bold text-lg'>
                                                                         Add
                                                                     </button>
                                                                     <div className='absolute top-0 right-2'>+</div>
@@ -406,14 +408,14 @@ export default function MenuPage() {
                 </div>
 
 
-                <div style={{ backgroundColor: colors.componentColor }} className='p-8 w-[30%] shadow-md hidden md:block'>
+                <div style={{ backgroundColor: theme.componentColor }} className='p-8 w-[30%] shadow-md hidden md:block'>
                     <ImageGallery outletName={outletName} />
 
-                    <div style={{ color: colors.mainTextColor }} className='flex justify-between items-center mt-6'>
+                    <div style={{ color: theme.mainTextColor }} className='flex justify-between items-center mt-6'>
                         <div className='text-2xl font-semibold -mb-1'>Recommended Add-ons</div>
                         {/* <IoHeart /> */}
                     </div>
-                    <div style={{ color: colors.textColor }} className='pt-2 text-lg '>
+                    <div style={{ color: theme.textColor }} className='pt-2 text-lg '>
                         Above are some recommended add-ons that pair well with your selections.
                     </div>
 
@@ -425,8 +427,8 @@ export default function MenuPage() {
                         <div>
                             <div className='flex justify-between items-center mt-6'>
                                 <div>
-                                    <div style={{ color: colors.mainTextColor }} className='text-3xl font-bold -mb-2'>₹{getCartTotal().toFixed(2)}</div>
-                                    <div style={{ color: colors.textColor }} className='text-xl'>{cart.items.length} items</div>
+                                    <div style={{ color: theme.mainTextColor }} className='text-3xl font-bold -mb-2'>₹{getCartTotal().toFixed(2)}</div>
+                                    <div style={{ color: theme.textColor }} className='text-xl'>{cart.items.length} items</div>
                                 </div>
                                 <div 
                                 onClick={() => {
@@ -437,7 +439,7 @@ export default function MenuPage() {
                                     localStorage.setItem('carts', JSON.stringify(updatedCarts));
                                     window.location.reload();
                                 }}
-                                style={{ backgroundColor: colors.differentColorOrange, fontFamily: 'Montserrat' }} className=' cursor-pointer rounded-full text-xl px-4 py-2 font-bold'>
+                                style={{ backgroundColor: theme.differentColorOrange, fontFamily: 'Montserrat' }} className=' cursor-pointer rounded-full text-xl px-4 py-2 font-bold'>
                                     Checkout
                                 </div>
                             </div>
@@ -452,33 +454,33 @@ export default function MenuPage() {
                                                 <img
                                                     src={item.image}
                                                     alt={item.item}
-                                                    style={{ borderColor: colors.secComponentColor }}
+                                                    style={{ borderColor: theme.secComponentColor }}
                                                     className="border-2 h-20 w-20 mr-4 object-cover rounded-lg"
                                                 />
                                                 <div className='flex flex-col justify-between'>
                                                     <div>
-                                                        <div style={{ color: colors.mainTextColor, marginBottom: -8 }} className='text-xl font-bold'>
+                                                        <div style={{ color: theme.mainTextColor, marginBottom: -8 }} className='text-xl font-bold'>
                                                             <TruncatedTextComponent text={item.item} maxLength={11} />
                                                         </div>
-                                                        <div style={{ color: colors.textColor }} className='text-lg font-light'>
+                                                        <div style={{ color: theme.textColor }} className='text-lg font-light'>
                                                             Quantity: {item.quantity} * Rs.{item.price}
                                                         </div>
                                                     </div>
-                                                    <div style={{ fontFamily: 'Montserrat', color: colors.mainTextColor }} className='text-base font-bold'>
+                                                    <div style={{ fontFamily: 'Montserrat', color: theme.mainTextColor }} className='text-base font-bold'>
                                                         ₹{(item.quantity * item.price).toFixed(2)}
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div className='flex flex-col items-end justify-between relative'>
-                                                <div style={{ color: colors.differentColorGreen, fontFamily: 'Montserrat' }} className='text-base font-bold uppercase'>
+                                                <div style={{ color: theme.differentColorGreen, fontFamily: 'Montserrat' }} className='text-base font-bold uppercase'>
                                                     In Stock
                                                 </div>
-                                                <div style={{ borderColor: colors.secComponentColor, color: colors.textColor }} className='border-2 px-2 py-1 flex items-center justify-center rounded-lg w-20'>
+                                                <div style={{ borderColor: theme.secComponentColor, color: theme.textColor }} className='border-2 px-2 py-1 flex items-center justify-center rounded-lg w-20'>
                                                     <button onClick={() => removeFromCart(item.id)} className='absolute left-2 rounded'>
                                                         <FaMinus size={13} />
                                                     </button>
-                                                    <span style={{ color: colors.differentColorGreen, marginBottom: -2 }} className='mx-3 text-lg'>
+                                                    <span style={{ color: theme.differentColorGreen, marginBottom: -2 }} className='mx-3 text-lg'>
                                                         {item.quantity}
                                                     </span>
                                                     <button onClick={() => addToCart(item)} className='absolute right-2 rounded'>
@@ -495,7 +497,7 @@ export default function MenuPage() {
 
                 </div>
                 {cart.items.length > 0 &&
-                    <div style={{ backgroundColor: colors.differentColorOrange, color: colors.backgroundColor }} className="md:hidden fixed bottom-14 left-0 w-full py-2 px-4 overflow-x-auto flex space-x-4 z-10 justify-between text-2xl font-semibold">
+                    <div style={{ backgroundColor: theme.differentColorOrange, color: theme.backgroundColor }} className="md:hidden fixed bottom-14 left-0 w-full py-2 px-4 overflow-x-auto flex space-x-4 z-10 justify-between text-2xl font-semibold">
                         <div>
                             {cart.items.length} items added
                         </div>
