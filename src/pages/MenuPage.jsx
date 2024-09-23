@@ -420,7 +420,7 @@ export default function MenuPage() {
                     </div>
 
                     {status.text.includes("Closed") ? (
-                        <p className="leading-[1.05] pt-6">
+                        <p style={{color: theme.mainTextColor}} className="leading-[1.05] pt-6">
                             Our shop is currently closed, but don’t worry! Your cart will be waiting for you as soon as we reopen. Feel free to come back later!
                         </p>
                     ) : (

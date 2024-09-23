@@ -19,17 +19,18 @@ const Contact = () => {
                         We're here to assist you!
                     </p>
                     <p style={{color: theme.textColor}} className="text-2xl">
-                        Our team is dedicated to providing you with exceptional service. A great living environment can enhance your quality of life.
+                    Whether you have inquiries about your order, suggestions for improvement, or just want to chat, we’re here for you! 
+                    Feel free to reach out, and we’ll get back to you as soon as possible. Thank you for being a valued part of our community!
                     </p>
                     <div className="flex flex-col gap-6">
                     <div className="flex flex-wrap justify-between sm:justify-start md:gap-8">
-                            <ContactCard theme={theme} icon={<MdCall size={30} />} title="Call" number="021 123 145 14" buttonText="Call now" />
-                            <ContactCard theme={theme} icon={<BsFillChatDotsFill size={30} />} title="Chat" number="021 123 145 14" buttonText="Chat now" />
+                            <ContactCard theme={theme} icon={<MdCall size={30} />} title="Call" number="+91 1234567789" buttonText="Call now" />
+                            <ContactCard theme={theme} icon={<BsFillChatDotsFill size={30} />} title="Chat" number="+91 1234567789" buttonText="Chat now" />
                         </div>
 
                         <div className="flex flex-wrap justify-between sm:justify-start md:gap-8">
-                            <ContactCard theme={theme} icon={<BsFillChatDotsFill size={30} />} title="Video Call" number="021 123 145 14" buttonText="Video Call now" />
-                            <ContactCard theme={theme} icon={<HiChatBubbleBottomCenter size={30} />} title="Message" number="021 123 145 14" buttonText="Message now" />
+                            <ContactCard theme={theme} icon={<BsFillChatDotsFill size={30} />} title="Video Call" number="+91 1234567789" buttonText="Video Call now" />
+                            <ContactCard theme={theme} icon={<HiChatBubbleBottomCenter size={30} />} title="Message" number="+91 1234567789" buttonText="Message now" />
                         </div>
                     </div>
                 </div>
