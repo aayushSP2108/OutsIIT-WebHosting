@@ -18,14 +18,14 @@ export default function Outlet({ outlet }) {
     // const handleOutletClick = (outletName) => {
     //     navigate(`/menu/${outletName}`);
     //   };
-      
+
     return (
         <div
             key={outlet.id}
             style={{ backgroundColor: theme.shadowColor }}
             className={`p-4 rounded-lg transition-shadow duration-300 cursor-pointer ${status.text.includes("Closed") ? 'grayscale' : ''}`} //shadow-custom md:shadow-none md:hover:shadow-custom
 
-            // onClick={() => handleOutletClick(outlet.name)}
+        // onClick={() => handleOutletClick(outlet.name)}
         >
 
             <div className="relative w-full rounded-lg mb-2">
@@ -65,14 +65,14 @@ export default function Outlet({ outlet }) {
                                         {convertToAMPM(outlet.openingTime)} – {convertToAMPM(outlet.closingTime)}
                                     </div>
                                     <h1 style={{ color: theme.textColor, marginBottom: -2 }} className="text-sm md:text-sm">
-                            Offdays: <span style={{ color: theme.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
-                        </h1>
+                                        Offdays: <span style={{ color: theme.mainTextColor }} className="font-bold">{outlet.offDays.join(', ')}</span>
+                                    </h1>
                                 </>
                             ) : (
                                 status.text
                             )}
                         </p>
-                        
+
                     </div>
                 </div>
                 <div className='flex flex-col justify-end items-end '>

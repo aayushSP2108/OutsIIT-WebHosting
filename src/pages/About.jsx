@@ -7,6 +7,7 @@ import LaptopLight from './../data/LaptopLight.mp4';
 import Phone from './../data/Phone.mp4';
 
 import './MenuPage.css';
+import Footer from '../components/Footer';
 
 export default function About() {
   const { theme, toggleTheme } = useTheme();
@@ -16,8 +17,8 @@ export default function About() {
   useEffect(() => {
     const videoElement = videoRef.current;
     if (videoElement) {
-      videoElement.currentTime =1; // Start from 10 seconds
-      videoElement.play(); // Ensure the video plays
+      videoElement.currentTime = 1;
+      videoElement.play();
     }
   }, []);
   return (
@@ -107,9 +108,9 @@ export default function About() {
 
       <h3 style={{ color: theme.differentColorOrange }} className="text-3xl text-center font-semibold mb-3">Future Improvements</h3>
       <div className="relative flex-col items-center justify-center overflow-hidden group">
-            <video className='videoTag absolute inset-0 object-contain scale-110 w-full h-full opacity-15 group-hover:opacity-100' autoPlay loop muted>
-              <source src={Phone} type='video/mp4' />
-            </video>
+        <video className='videoTag absolute inset-0 object-contain scale-110 w-full h-full opacity-15 group-hover:opacity-100' autoPlay loop muted>
+          <source src={Phone} type='video/mp4' />
+        </video>
         <ul style={{ color: theme.textColor }} className="list-inside space-y-2 mb-4 opacity-100 group-hover:opacity-5 text-center">
           <li>Two-Way Integration (Shopkeeper to Customer Communication)</li>
           <li>Payment Gateway Integration</li>
@@ -131,9 +132,9 @@ export default function About() {
         <p style={{ color: theme.textColor }} className="mt-2 text-gray-700">
           I would like to express my heartfelt gratitude to all the creators and photographers for their outstanding work that made these images available. Their contributions enrich the content and help create a visually appealing experience.
         </p>
-        <p style={{ color: theme.textColor }} className="mt-2 text-gray-700">
+        {/* <p style={{ color: theme.textColor }} className="mt-2 text-gray-700">
           Special thanks to the developers and designers who worked tirelessly to bring this project to life. Your dedication and expertise have been invaluable.
-        </p>
+        </p> */}
         <p style={{ color: theme.mainTextColor }} className="mt-2 text-gray-700">
           Lastly, a big thank you to our users for their continued support and feedback, which drives us to improve and innovate constantly.
         </p>
@@ -206,7 +207,12 @@ export default function About() {
           <span className="font-bold">Sandwich Image:</span>
           <a href="https://www.vegrecipesofindia.com/wp-content/uploads/2014/01/grilled-sandwich-4.jpg" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer"> View Image</a> [Accessed: Sep. 23, 2024]
         </li>
+        <li>
+          <span className="font-bold">App Icon:</span>
+          <a href="https://www.svgviewer.dev/s/363041/shop" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer"> View Image</a> [Accessed: Sep. 23, 2024]
+        </li>
       </ul>
+      <Footer />
     </div >
   );
 }

@@ -26,8 +26,8 @@ const FoodIcon = ({ type, size, padding }) => {
     const { Icon, borderColor, iconColor, bgColor } = iconConfig[type] || {};
 
     return (
-        <div 
-            className={`food-icon-container ${bgColor} mr-1 flex justify-center items-center`} 
+        <div
+            className={`food-icon-container ${bgColor} mr-1 flex justify-center items-center`}
             style={{ borderColor, borderWidth: 2, padding, borderRadius: '4px', display: 'inline-flex' }}
         >
             {Icon && <Icon size={size} color={iconColor} />}

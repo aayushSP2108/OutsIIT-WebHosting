@@ -6,7 +6,7 @@ const ContentComponent = ({ div1Content, div2Content }) => {
       <div className="flex flex-col gap-6 p-7 md:w-1/2">
         {div1Content}
       </div>
-  
+
       <div className="flex flex-col gap-6 p-7 md:w-1/2">
         {div2Content}
       </div>

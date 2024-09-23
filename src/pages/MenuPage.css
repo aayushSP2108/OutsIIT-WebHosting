@@ -1,10 +1,10 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem; /* Adjust as needed */
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
 
 
-  .hover\:opacity-10:hover .videoTag {
-    opacity: 10; /* or 10% */
+.hover\:opacity-10:hover .videoTag {
+  opacity: 10;
 }

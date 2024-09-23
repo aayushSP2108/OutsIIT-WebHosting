@@ -8,7 +8,7 @@ const colors = {
 
   mainTextColor: '#FFFFFF',
   textColor: '#AEAEAE',
-  
+
   differentColorOrange: '#FF5200',
   differentColorPurple: '#0092ff',
   differentColorPurpleBG: '#9dd5ff',
@@ -27,7 +27,7 @@ const lightcolors = {
 
   mainTextColor: '#151920',
   textColor: '#676A6D',
-  
+
   differentColorOrange: '#FF5200',
   differentColorPurple: '#1877F2',
   differentColorPurpleBG: '#0092ff',
@@ -36,5 +36,4 @@ const lightcolors = {
   differentColorRed: '#BA181A',
 };
 
-// Use named exports
 export { colors, lightcolors };

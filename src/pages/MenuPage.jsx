@@ -420,7 +420,7 @@ export default function MenuPage() {
                     </div>
 
                     {status.text.includes("Closed") ? (
-                        <p style={{color: theme.mainTextColor}} className="leading-[1.05] pt-6">
+                        <p style={{ color: theme.mainTextColor }} className="leading-[1.05] pt-6">
                             Our shop is currently closed, but don’t worry! Your cart will be waiting for you as soon as we reopen. Feel free to come back later!
                         </p>
                     ) : (
@@ -430,16 +430,16 @@ export default function MenuPage() {
                                     <div style={{ color: theme.mainTextColor }} className='text-3xl font-bold -mb-2'>₹{getCartTotal().toFixed(2)}</div>
                                     <div style={{ color: theme.textColor }} className='text-xl'>{cart.items.length} items</div>
                                 </div>
-                                <div 
-                                onClick={() => {
-                                    alert(`YOUR ORDER IS SUCCESSFULLY PLACED FROM OUTLET ${outletName}`);
-                                    console.log("YOUR ORDER IS SUCCESSFULLY PLACED")
-                                    const updatedCarts = { ...cart };
-                                    delete updatedCarts[outletName];
-                                    localStorage.setItem('carts', JSON.stringify(updatedCarts));
-                                    window.location.reload();
-                                }}
-                                style={{ backgroundColor: theme.differentColorOrange, fontFamily: 'Montserrat' }} className=' cursor-pointer rounded-full text-xl px-4 py-2 font-bold'>
+                                <div
+                                    onClick={() => {
+                                        alert(`YOUR ORDER IS SUCCESSFULLY PLACED FROM OUTLET ${outletName}`);
+                                        console.log("YOUR ORDER IS SUCCESSFULLY PLACED")
+                                        const updatedCarts = { ...cart };
+                                        delete updatedCarts[outletName];
+                                        localStorage.setItem('carts', JSON.stringify(updatedCarts));
+                                        window.location.reload();
+                                    }}
+                                    style={{ backgroundColor: theme.differentColorOrange, fontFamily: 'Montserrat' }} className=' cursor-pointer rounded-full text-xl px-4 py-2 font-bold'>
                                     Checkout
                                 </div>
                             </div>
@@ -505,11 +505,11 @@ export default function MenuPage() {
                             onClick={() => {
                                 alert(`YOUR ORDER IS SUCCESSFULLY PLACED FROM OUTLET ${outletName}`);
                                 console.log("YOUR ORDER IS SUCCESSFULLY PLACED")
-                            
+
                                 const updatedCarts = { ...cart };
-        delete updatedCarts[outletName];
-        localStorage.setItem('carts', JSON.stringify(updatedCarts));
-        window.location.reload();
+                                delete updatedCarts[outletName];
+                                localStorage.setItem('carts', JSON.stringify(updatedCarts));
+                                window.location.reload();
                             }}
                             className='flex gap-1 items-center cursor-pointer' style={{ cursor: 'pointer' }}>
                             Checkout
@@ -519,7 +519,7 @@ export default function MenuPage() {
                 }
             </div>
 
-            <Footer/>
+            <Footer />
         </div>
     );
 }

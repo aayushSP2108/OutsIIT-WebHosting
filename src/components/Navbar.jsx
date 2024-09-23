@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes, FaShoppingBasket, FaUserCircle, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
-import { useTheme } from '../context/ThemeContext'; 
+import { useTheme } from '../context/ThemeContext';
 import { colors } from '../styles/colors';
 
 export default function Navbar() {
     const { theme, toggleTheme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
     const [isDark, setIsDark] = useState(false);
-    
+
     const toggleDarkMode = () => {
         setIsDark(!isDark)
     }
-    
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -22,7 +22,7 @@ export default function Navbar() {
         <nav
             style={{
                 backgroundColor: theme.subBackgroundColor,
-                // boxShadow: '0 3px 10px rgba(155, 155, 155, 0.5)', // Adjust this to your needs
+                // boxShadow: '0 3px 10px rgba(155, 155, 155, 0.5)',
             }}
             className="shadow-custom fixed top-0 left-0 w-full z-10"
         >
@@ -33,7 +33,7 @@ export default function Navbar() {
 
                 <div className="hidden md:flex space-x-4">
                     <a href="#" style={{ color: theme.textColor }}>Home</a>
-                    <a href="#" style={{ color: theme.textColor }}>Favourites</a>
+                    <a href="#favourites" style={{ color: theme.textColor }}>Favourites</a>
                     <a href="#about" style={{ color: theme.textColor }} >Overview</a>
                     <a href="#Contact" style={{ color: theme.textColor }} >Contact Us</a>
                 </div>
@@ -60,7 +60,7 @@ export default function Navbar() {
                         </div>
                     </Link>
                     <div onClick={toggleTheme} className="bg-gray-700 rounded-full flex justify-center items-center p-2 hover:bg-[#ff3c00] cursor-pointer">
-                    {theme === colors ? <MdLightMode className="text-white" size={20} /> : <MdDarkMode className="text-white" size={20} />}
+                        {theme === colors ? <MdLightMode className="text-white" size={20} /> : <MdDarkMode className="text-white" size={20} />}
                     </div>
                     <button onClick={toggleMenu} className="md:hidden text-white">
                         {isOpen ? <FaTimes size={21} /> : <FaBars size={21} />}
@@ -71,8 +71,8 @@ export default function Navbar() {
             {isOpen && (
                 <div className="md:hidden bg-gray-700 p-4">
                     <a href="#" className="block" style={{ color: theme.textColor }}>Home</a>
-                    <a href="#" className="block" style={{ color: theme.textColor }}>Favourites</a>
-                    <a href="#about" className="block" style={{ color: theme.textColor }} >Overview</a>
+                    <a href="#favourites" className="block" style={{ color: theme.textColor }}>Favourites</a>
+                    <a href="#about" className="block" style={{ color: theme.textColor }} >About</a>
                     <a href="#Contact" className="block" style={{ color: theme.textColor }} >Contact Us</a>
                 </div>
             )}
