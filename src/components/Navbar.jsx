@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes, FaShoppingBasket, FaUserCircle, FaShoppingCart, FaSearch } from "react-icons/fa";
 import colors from '../styles/colors';
 import { Link } from 'react-router-dom';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-
+    const [isDark, setIsDark] = useState(false);
+    
+    const toggleDarkMode = () => {
+        setIsDark(!isDark)
+    }
+    
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -25,9 +31,9 @@ export default function Navbar() {
 
                 <div className="hidden md:flex space-x-4">
                     <a href="#" style={{ color: colors.textColor }}>Home</a>
-                    <a href="#" style={{ color: colors.textColor }} >Productions</a>
-                    <a href="#about" style={{ color: colors.textColor }} >About</a>
                     <a href="#" style={{ color: colors.textColor }}>Favourites</a>
+                    <a href="#about" style={{ color: colors.textColor }} >About</a>
+                    <a href="#Contact" style={{ color: colors.textColor }} >Contact Us</a>
                 </div>
 
                 <div className="flex items-center space-x-2">
@@ -51,8 +57,8 @@ export default function Navbar() {
                             <FaShoppingCart className="text-white" size={20} />
                         </div>
                     </Link>
-                    <div className="bg-gray-700 rounded-full flex justify-center items-center p-2 hover:bg-[#ff3c00] cursor-pointer">
-                        <FaUserCircle className="text-white" size={20} />
+                    <div onClick={toggleDarkMode} className="bg-gray-700 rounded-full flex justify-center items-center p-2 hover:bg-[#ff3c00] cursor-pointer">
+                    {isDark ? <MdLightMode className="text-white" size={20} /> : <MdDarkMode className="text-white" size={20} />}
                     </div>
                     <button onClick={toggleMenu} className="md:hidden text-white">
                         {isOpen ? <FaTimes size={21} /> : <FaBars size={21} />}
@@ -62,10 +68,10 @@ export default function Navbar() {
 
             {isOpen && (
                 <div className="md:hidden bg-gray-700 p-4">
-                    <a href="#" className="block text-gray-300 hover:text-white py-2">Home</a>
-                    <a href="#" className="block text-gray-300 hover:text-white py-2">Productions</a>
-                    <a href="#about" className="block text-gray-300 hover:text-white py-2">About</a>
-                    <a href="#favourites" className="block text-gray-300 hover:text-white py-2">Favourites</a>
+                    <a href="#" className="block" style={{ color: colors.textColor }}>Home</a>
+                    <a href="#" className="block" style={{ color: colors.textColor }}>Favourites</a>
+                    <a href="#about" className="block" style={{ color: colors.textColor }} >About</a>
+                    <a href="#Contact" className="block" style={{ color: colors.textColor }} >Contact Us</a>
                 </div>
             )}
         </nav>

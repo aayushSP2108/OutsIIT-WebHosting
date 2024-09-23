@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Cart = () => {
     const savedCarts = localStorage.getItem('carts');
@@ -19,7 +20,7 @@ const Cart = () => {
     return (
         <div className="bg-gray-100 min-h-screen p-8">
             <Navbar />
-            <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">Your Cart</h1>
+            <h1 className="pt-20 text-4xl font-bold text-center text-blue-600 mb-6">Your Cart</h1>
             {Object.keys(carts).length === 0 ? (
                 <p className="text-xl text-gray-600 text-center">Your cart is empty.</p>
             ) : (
@@ -58,6 +59,8 @@ const Cart = () => {
                     );
                 })
             )}
+
+<Footer/>
         </div>
     );
 };

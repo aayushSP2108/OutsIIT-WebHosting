@@ -17,23 +17,23 @@ const colors = {
     differentColorRed: '#EF4444',
   };
 
-// const colors = {
-//   shadowColor: 'rgba(180, 180, 180, 0.1)',
-//   subBackgroundColor: '#000000',
-//   backgroundColor: '#FFFFFF',
-//   componentColor: '#F1EFF0',
-//   secComponentColor: '#C3C3C3',
-//   mainBackgroundColor: '#FFFFFF',
+const lightcolors = {
+  shadowColor: 'rgba(180, 180, 180, 0.1)',
+  subBackgroundColor: '#000000',
+  backgroundColor: '#FFFFFF',
+  componentColor: '#F1EFF0',
+  secComponentColor: '#C3C3C3',
+  mainBackgroundColor: '#FFFFFF',
 
-//   mainTextColor: '#151920',
-//   textColor: '#676A6D',
+  mainTextColor: '#151920',
+  textColor: '#676A6D',
   
-//   differentColorOrange: '#FF5200',
-//   differentColorPurple: '#1877F2',
-//   differentColorPurpleBG: '#0092ff',
-//   differentColorGreen: '#00863F',
-//   differentColorYellow: '#F7F700',
-//   differentColorRed: '#BA181A',
-// };
+  differentColorOrange: '#FF5200',
+  differentColorPurple: '#1877F2',
+  differentColorPurpleBG: '#0092ff',
+  differentColorGreen: '#00863F',
+  differentColorYellow: '#F7F700',
+  differentColorRed: '#BA181A',
+};
 
 export default colors;

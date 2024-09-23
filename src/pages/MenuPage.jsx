@@ -14,6 +14,7 @@ import FooterMenu from '../components/FooterMenu';
 import { getStatus } from '../components/OutletStatus';
 import { BsFillStarFill } from 'react-icons/bs';
 import colors from '../styles/colors';
+import Footer from '../components/Footer';
 
 export default function MenuPage() {
     const { outletName } = useParams();
@@ -515,6 +516,8 @@ export default function MenuPage() {
                     </div>
                 }
             </div>
+
+            <Footer/>
         </div>
     );
 }
