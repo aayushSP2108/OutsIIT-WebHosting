@@ -50,7 +50,7 @@ While flashy and highly animated designs can be visually appealing, this website
 As the project continues to evolve, here are some planned features and improvements that we aim to implement:
 
 1. **Two-Way Integration (Shopkeeper to Customer Communication):**  
-   The website will soon support real-time communication between customers and shopkeepers for updates on orders, special requests, or general queries. *(This is already implemented in our app – [=[App APK Link (wait 60sec so it gets connected to sever)](https://vipulsp2108.github.io/Project/)*
+   The website will soon support real-time communication between customers and shopkeepers for updates on orders, special requests, or general queries. *(This is already implemented in our app – [App APK Link (wait 60sec so it gets connected to sever)](https://drive.google.com/drive/folders/1H4l0s22e015QmdwBdzeW7RBnot-WAt-A?usp=drive_link)*
 
 2. **Payment Gateway Integration:**  
    We are planning to integrate secure payment methods, including UPI, card payments, and net banking, allowing for a seamless checkout experience.
@@ -73,7 +73,65 @@ As the project continues to evolve, here are some planned features and improveme
 8. **Review and Rating System:**  
    Users will be able to rate their experience with outlets and leave reviews, helping others make better choices.
 
+## References
+
+- **Amul Store Image 1:** 
+[View Image](https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/amul.JPG) [Accessed: Sep. 23, 2024]
+
+- **Amul Store Image 2:** 
+[View Image](https://iitgn.ac.in/student/lifeoncampus/facilities/images/fac-img/amul.JPG) [Accessed: Sep. 23, 2024]
+
+- **Amul Store Image 3:** 
+[View Image](https://news.iitgn.ac.in/wp/wp-content/uploads/2020/05/amul-1-999x640.jpg) [Accessed: Sep. 23, 2024]
+
+- **Amul TriCone Image:** 
+[View Image](https://i.pinimg.com/736x/33/e6/ff/33e6ff011d887758fa255ea000d3be4c.jpg) [Accessed: Sep. 23, 2024]
+
+- **Amul Chocominis Image:** 
+[View Image](https://www.shutterstock.com/shutterstock/photos/1878842344/display_1500/stock-photo-india-april-chocolate-brand-amul-chocominis-1878842344.jpg) [Accessed: Sep. 23, 2024]
+
+- **Amul Kool Image:** 
+[View Image](https://www.shutterstock.com/shutterstock/photos/1257639893/display_1500/stock-photo-pune-india-september-amul-kool-on-white-background-shot-in-studio-1257639893.jpg) [Accessed: Sep. 23, 2024]
+
+- **2 Degree Café Image 1:** 
+[View Image](https://img.restaurantguru.com/r515-2-degree-cafe-interior.jpg) [Accessed: Sep. 23, 2024]
+
+- **2 Degree Café Image 2:** 
+[View Image](https://img.restaurantguru.com/r376-2-degree-cafe-design-2023-12.jpg) [Accessed: Sep. 23, 2024]
+
+- **2 Degree Café Image 3:** 
+[View Image](https://img.restaurantguru.com/r8d6-2-degree-cafe-picture-2021-09-35620.jpg) [Accessed: Sep. 23, 2024]
+
+- **2 Degree Café Image 4:** 
+[View Image](https://img.restaurantguru.com/r9db-2-degree-cafe-photo.jpg) [Accessed: Sep. 23, 2024]
+
+- **Masala Chai Image:**
+[View Image](https://www.teacupsfull.com/cdn/shop/articles/Screenshot_2023-10-20_at_11.07.13_AM.png?v=1697780292) [Accessed: Sep. 23, 2024]
+
+- **Cold Coffee Image:** 
+[View Image](https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Cold-Coffee-Thumbnail.jpg) [Accessed: Sep. 23, 2024]
+
+- **Cold Coco Image:** 
+[View Image](https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/cre8krdqeeuyq74gbpsy) [Accessed: Sep. 23, 2024]
+
+- **Iced Tea Image:** 
+[View Image](https://www.funfoodfrolic.com/wp-content/uploads/2017/05/Iced-Tea-3.jpg) [Accessed: Sep. 23, 2024]
+
+- **Sandwich Image:** 
+[View Image](https://www.vegrecipesofindia.com/wp-content/uploads/2014/01/grilled-sandwich-4.jpg) [Accessed: Sep. 23, 2024]
+
+### Note
+This material is for personal use only and not intended for production or commercial purposes.
+
+## Vote of Thanks
+I would like to express my heartfelt gratitude to all the creators and photographers for their outstanding work that made these images available. Their contributions enrich the content and help create a visually appealing experience.
+
+Special thanks to the developers and designers who worked tirelessly to bring this project to life. Your dedication and expertise have been invaluable.
+
+Lastly, a big thank you to our users for their continued support and feedback, which drives us to improve and innovate constantly.
+
 ## Conclusion
 This website aims to make the campus dining experience seamless, accessible, and efficient. With constant improvements and new features in the pipeline, we are committed to offering the best possible user experience.
 
-Feel free to explore the project and contribute!
+Feel free to explore the project!
+

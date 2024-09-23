@@ -3,3 +3,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem; /* Adjust as needed */
   }
+
+
+  .hover\:opacity-10:hover .videoTag {
+    opacity: 10; /* or 10% */
+}

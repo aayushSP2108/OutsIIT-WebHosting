@@ -34,7 +34,7 @@ export default function Navbar() {
                 <div className="hidden md:flex space-x-4">
                     <a href="#" style={{ color: theme.textColor }}>Home</a>
                     <a href="#" style={{ color: theme.textColor }}>Favourites</a>
-                    <a href="#about" style={{ color: theme.textColor }} >About</a>
+                    <a href="#about" style={{ color: theme.textColor }} >Overview</a>
                     <a href="#Contact" style={{ color: theme.textColor }} >Contact Us</a>
                 </div>
 
@@ -72,7 +72,7 @@ export default function Navbar() {
                 <div className="md:hidden bg-gray-700 p-4">
                     <a href="#" className="block" style={{ color: theme.textColor }}>Home</a>
                     <a href="#" className="block" style={{ color: theme.textColor }}>Favourites</a>
-                    <a href="#about" className="block" style={{ color: theme.textColor }} >About</a>
+                    <a href="#about" className="block" style={{ color: theme.textColor }} >Overview</a>
                     <a href="#Contact" className="block" style={{ color: theme.textColor }} >Contact Us</a>
                 </div>
             )}
