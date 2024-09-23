@@ -16,7 +16,7 @@ export default function Favourites() {
                     We're Working on It!
                 </h2>
                 <p style={{ color: theme.textColor }} className="mb-4 text-center">
-                    This sction is under devlopment. We're working hard to bring you new features. Stay tuned!
+                    This section is under development. We're working hard to bring you new features. Stay tuned!
                 </p>
             </div>
             <Footer />
