@@ -7,7 +7,7 @@ This project serves as a solution for two tasks assigned as part of the **Instit
 
 The website is built using **React, Tailwind CSS, HTML, CSS, and JavaScript** and fulfills the requirements for both tasks outlined below.
 
-### Task List for **Website Manager Project**
+### Task1: Task List for **Website Manager Project**
 
 ### 1. Website Creation:
 - Developed a basic website with multiple pages (Home, About, Contact, Blog).
@@ -19,7 +19,7 @@ The website is built using **React, Tailwind CSS, HTML, CSS, and JavaScript** an
 - **Favourites**: Section for under development.
 - **Contact Us**: Contact details of the owner.
 
-### Task List for **Food Ordering Application**
+### Task2: Task List for **Food Ordering Application**
 This project also serves as an **Online Food Ordering Platform** for outlets at IITGn.
 
 ### Features Implemented:
