@@ -2,7 +2,7 @@
   "name": "ibp-iitgn",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://aayushSP2108.github.io/OutsIIT-WebHosting",
+  "homepage": "https://aayushSP2108.github.io/OutsIIT-WebHosting/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
