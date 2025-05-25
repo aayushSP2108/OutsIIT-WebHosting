@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import { useTheme } from '../context/ThemeContext';
 import ContentComponent from '../components/ContentComponent';
-// import LaptopDark from './../data/LaptopDark.mp4';
+// import LaptopDark from 'https://github.com/aayushSP2108/OutsIIT-WebHosting/blob/main/src/data/LaptopDark.mp4';
 // import LaptopLight from './../data/LaptopLight.mp4';
 // import Phone from './../data/Phone.mp4';
 
@@ -65,11 +65,11 @@ export default function About() {
       <ContentComponent
         div1Content={
           <div className="relative flex-col items-center justify-center overflow-hidden group">
-            {/* 
+   
             <video ref={videoRef} className='videoTag absolute inset-0 object-contain w-full h-full opacity-15 group-hover:opacity-100' autoPlay loop muted>
-              <source src={LaptopDark} type='video/mp4' />
+              <source src={'https://raw.githubusercontent.com/aayushSP2108/OutsIIT-WebHosting/main/src/data/LaptopDark.mp4'} type='video/mp4' />
             </video>
-            */}
+    
             <div className="relative p-12 opacity-100 group-hover:opacity-5">
               <h3 style={{ color: theme.differentColorOrange }} className="text-3xl text-center font-semibold mb-3">
                 Core Features
@@ -88,11 +88,11 @@ export default function About() {
         }
         div2Content={
           <div className="relative flex-col items-center justify-center overflow-hidden group">
-            {/* 
+
             <video className='videoTag absolute inset-0 object-contain w-full h-full opacity-15 group-hover:opacity-100' autoPlay loop muted>
-              <source src={LaptopLight} type='video/mp4' />
+              <source src={'https://raw.githubusercontent.com/aayushSP2108/OutsIIT-WebHosting/main/src/data/LaptopLight.mp4'} type='video/mp4' />
             </video>
-            */}
+  
             <div className="relative p-12 opacity-100 group-hover:opacity-5">
               <h3 style={{ color: theme.differentColorOrange }} className="text-3xl text-center font-semibold mb-3">
                 Additional Features
@@ -112,11 +112,11 @@ export default function About() {
 
       <h3 style={{ color: theme.differentColorOrange }} className="text-3xl text-center font-semibold mb-3">Future Improvements</h3>
       <div className="relative flex-col items-center justify-center overflow-hidden group">
-        {/* 
+
         <video className='videoTag absolute inset-0 object-contain scale-110 w-full h-full opacity-15 group-hover:opacity-100' autoPlay loop muted>
-          <source src={Phone} type='video/mp4' />
+          <source src={'https://raw.githubusercontent.com/aayushSP2108/OutsIIT-WebHosting/main/src/data/Phone.mp4'} type='video/mp4' />
         </video>
-        */}
+
         <ul style={{ color: theme.textColor }} className="list-inside space-y-2 mb-4 opacity-100 group-hover:opacity-5 text-center">
           <li>Two-Way Integration (Shopkeeper to Customer Communication)</li>
           <li>Payment Gateway Integration</li>
